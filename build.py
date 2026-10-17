@@ -16,7 +16,7 @@ ROOT = Path(__file__).parent
 SRC = ROOT / "src"
 # The address the site is served from, for the hreflang and canonical links. Change it if
 # you use a custom domain.
-BASE = "https://george308turner.github.io/slides-remote/"
+BASE = "https://slidesremote.app/"
 
 # Shown on the help, privacy and terms pages.
 SUPPORT_EMAIL = "georgeturner308@icloud.com"
