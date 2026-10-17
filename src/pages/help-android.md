@@ -2,7 +2,7 @@
 
 Slides Remote lets you change slides on your computer from your Android phone or Wear OS watch, see your notes for each slide and keep to time. Questions not answered here: {{EMAIL}}.
 
-Slides Remote runs on **Mac** and **Windows**. Where a step on the computer differs, it's marked **On a Mac** or **On Windows**. The Windows app is newer: for now it connects over Wi-Fi only, and notes, timers and the computer's Settings are in the Mac app only (they're coming to Windows).
+Slides Remote runs on **Mac** and **Windows**. Where a step on the computer differs, it's marked **On a Mac** or **On Windows**.
 
 **Contents:** [Getting started](#getting-started) · [Pairing](#pairing) · [How the devices connect](#how-the-devices-connect) · [The remote](#the-remote) · [Wear OS watch](#wear-os-watch) · [Notes](#notes) · [Timers](#timers) · [The unlock, free trial and restoring](#the-unlock-free-trial-and-restoring) · [Settings on the phone](#settings-on-the-phone) · [Settings on the computer](#settings-on-the-computer) · [Troubleshooting](#troubleshooting) · [Privacy](#privacy)
 
@@ -16,7 +16,7 @@ You need:
   - **On Windows:** Windows 10 (version 2004 or later) or Windows 11 and **Slides Remote for Windows**.
 - **An Android phone** with Android 8.0 or later and the free **Slides Remote** app from Google Play.
 - **A Wear OS watch** (optional) with Wear OS 3 or later. The watch app is the same Slides Remote on Google Play: install it from the Play Store on the watch, or from the app's page in the phone's Play Store.
-- The computer and phone on **the same Wi-Fi network**, or (with a Mac) close enough for **Bluetooth** (about 10 metres). No internet connection is needed.
+- The computer and phone on **the same Wi-Fi network**, or close enough for **Bluetooth** (about 10 metres). No internet connection is needed.
 
 ### 1. On the computer
 
@@ -30,9 +30,9 @@ You can choose **Not Now** on either screen; the dashboard's Status section then
 **Why Accessibility?** macOS lets an app press keys for another app only with this permission. Slides Remote presses a key only when you choose a command (Next, Previous, Start Show…) on a remote or on the computer. It doesn't read your screen, other apps or what you type.
 
 **On Windows:**
-1. Open **Slides Remote**. Its dashboard opens, and its icon appears in the notification area at the right of the taskbar (Windows 11 may put it under **^**; drag it onto the taskbar to keep it in view). Closing the dashboard keeps Slides Remote running; open it again from the icon (**Open Dashboard…**).
-2. **Windows Defender Firewall** asks the first time: allow Slides Remote on **private networks**, or phones can't connect. Your Wi-Fi network has to be set to **Private** (**Settings ▸ Network & internet ▸ Wi-Fi**, then your network). To change it later: **Windows Security ▸ Firewall & network protection ▸ Allow an app through firewall**.
-3. Under **Status**, Wi-Fi says **On** when phones and watches can find the PC.
+1. Open **Slides Remote**. The first time, it shows two screens: **Let Your Phones and Watches Find This PC** and **Connect Without Wi-Fi** (Bluetooth, so phones and watches nearby can connect where there's no shared Wi-Fi). Click **Continue** on each.
+2. Set your Wi-Fi network to **Private** (**Settings ▸ Network & internet ▸ Wi-Fi**, then your network): Slides Remote is allowed through **Windows Defender Firewall** on private networks only. If Windows asks, allow it on **private networks**. To change it later: **Windows Security ▸ Firewall & network protection ▸ Allow an app through firewall**.
+3. The dashboard opens, and Slides Remote's icon appears in the notification area at the right of the taskbar (Windows 11 may put it under **^**; drag it onto the taskbar to keep it in view). Closing the dashboard keeps Slides Remote running; open it again from the icon (**Open Dashboard…**). Under **Status**, Wi-Fi and Bluetooth say **On** when phones and watches can find the PC.
 
 Windows needs no Accessibility permission. Slides Remote presses a key only when you choose a command on a remote or on the computer.
 
@@ -48,7 +48,7 @@ Windows needs no Accessibility permission. Slides Remote presses a key only when
 1. On the computer, open your presentation and click its window so it's in front. Start the slideshow there or with **Start Show** on the phone.
 2. Tap **Next** and **Previous**, or press the phone's volume buttons. That's it.
 
-Slides Remote works with **PowerPoint, Google Slides (in a browser)** and most other presentation apps, plus **Keynote and Preview** on a Mac and **PDF viewers** on Windows, by pressing the keys you would press yourself.
+Slides Remote works with **PowerPoint, Google Slides (in a browser)** and most other presentation apps, plus **Keynote and Preview** on a Mac and **LibreOffice Impress, Keynote for iCloud (in a browser) and PDF viewers** on Windows, by pressing the keys you would press yourself.
 
 **Keep Slides Remote on screen while you present.** The phone keeps its link to the computer while the app is open; if you switch to another app, it lets go and reconnects when you come back. The screen stays on by itself while connected (see [Settings on the phone](#settings-on-the-phone)).
 
@@ -73,9 +73,9 @@ After that, the phone and watch reconnect by themselves whenever the computer ap
 ## How the devices connect
 
 The badge at the top of the remote shows the link in use, with signal bars (on the watch, as an icon: Bluetooth, Wi-Fi or a phone):
-- **Wi-Fi**: the computer and phone are on the same Wi-Fi network. Fastest; used whenever it's available. With a Windows PC, it's the only link for now.
-- **Bluetooth** (with a Mac): used when there's no shared Wi-Fi (for example on a venue's network that blocks devices from seeing each other). The phone switches between Wi-Fi and Bluetooth by itself, and back to Wi-Fi when it returns. **Reconnecting…** shows while it switches; your slide stays on screen, and a Next you press meanwhile is sent once.
-- **Via phone** (watch only): the watch talks to the computer directly over Bluetooth (with a Mac), or over Wi-Fi when the watch is on the computer's network. When it can't reach the computer itself, it goes through the Slides Remote app on your phone, which needs to be on the computer's Wi-Fi network, and switches back to Bluetooth when it can. The phone app doesn't need to be open: while it carries the watch's connection, the phone shows a **Connecting your watch** notification.
+- **Wi-Fi**: the computer and phone are on the same Wi-Fi network. Fastest; used whenever it's available.
+- **Bluetooth**: used when there's no shared Wi-Fi (for example on a venue's network that blocks devices from seeing each other). The phone switches between Wi-Fi and Bluetooth by itself, and back to Wi-Fi when it returns. **Reconnecting…** shows while it switches; your slide stays on screen, and a Next you press meanwhile is sent once.
+- **Via phone** (watch only): the watch talks to the computer directly over Bluetooth, or over Wi-Fi when the watch is on the computer's network. When it can't reach the computer itself, it goes through the Slides Remote app on your phone, which needs to be on the computer's Wi-Fi network, and switches back to Bluetooth when it can. The phone app doesn't need to be open: while it carries the watch's connection, the phone shows a **Connecting your watch** notification.
 
 "No reply for 8 s" means the computer hasn't answered for a while; it usually recovers by itself. Everything between your devices is encrypted.
 
@@ -115,7 +115,7 @@ The watch reads the unlock from Google Play, for the Google account on the watch
 
 ## Notes
 
-*Notes are part of the unlock (below); you can try them free for 7 days. They need the Mac app for now; they're coming to Windows.*
+*Notes are part of the unlock (below); you can try them free for 7 days.*
 
 - **On the computer:** click **Edit Presentations and Notes…** on the dashboard. Add presentations with **+**, give each a name and its number of slides, pick a slide and type its notes. They save as you type.
 - **On the phone:** the current slide's notes are on the remote screen; tap **Edit** to change them, then **Save** (or **Cancel**). If the same notes were changed on the computer at the same time, the phone shows the computer's and asks which to keep: **Use Mine** or **Use the computer's**.
@@ -128,7 +128,7 @@ Notes are plain text, up to about 16,000 characters per slide. They're kept on t
 
 ## Timers
 
-*Timers are part of the unlock (below). They need the Mac app for now; they're coming to Windows.*
+*Timers are part of the unlock (below).*
 
 - **Set up:** on the computer, **Edit Timer…** on the dashboard; on the phone, **More ▸ Set Up Timer…**. Enter the talk's length (for example 20 or 19:30), the warnings (times left, such as 5:00, 1:00, 0:00) and optionally **sections**: a range of slides with its own budget (Intro, slides 1–3, 2 minutes). You can also give a single slide its own time.
 - **Run:** **Start Timer** on the computer, phone or watch; **Pause**, **Resume** and **Reset** from any of them (on the phone, Reset is in the More menu; on the watch, all are on the Show page).
@@ -161,7 +161,11 @@ Open **Settings** from the gear on the list of computers, or **More ▸ Settings
 
 ## Settings on the computer
 
-**On Windows**, Slides Remote has no Settings yet: it uses the usual keys for PowerPoint, Google Slides in a browser and PDF viewers, and keeps the PC's own sleep settings. Stop the PC sleeping during a talk in **Settings ▸ System ▸ Power & battery** (**Power & sleep** on Windows 10).
+**On Windows**, click **Settings…** on the dashboard.
+
+- **General:** **Keep this PC awake while remotes are connected** (the display also stays on while the slideshow plays); Notes & Timers status, Unlock and Restore Purchases.
+- **Presentation:** **Control with**: **Automatic** (controls PowerPoint directly when it's in front, and follows its slide; key presses for every other app), **Keystrokes** or **PowerPoint**.
+- **Keys:** the key each command presses, for each app (PowerPoint, LibreOffice Impress, Google Slides in a browser, Keynote for iCloud in a browser, PDF viewers, Other Apps). Click a key and press a new one, choose **None**, or **Use Default**.
 
 **On a Mac**, open **Slides Remote ▸ Settings…** (⌘,).
 
@@ -180,20 +184,20 @@ The dashboard's buttons change slides too. **On a Mac**, so do the **Slides** me
 ### The phone can't find my computer
 - Is **Slides Remote open on the computer**? It has to be running (on a Mac it can be in the menu bar; on Windows, in the notification area).
 - Is **Slides Remote open on the phone**, on screen? It looks for computers only while it's in front.
-- Same **Wi-Fi network**? Many guest, hotel and conference networks stop devices seeing each other: with a Mac, turn Wi-Fi off on the phone and it uses Bluetooth instead.
+- Same **Wi-Fi network**? Many guest, hotel and conference networks stop devices seeing each other: turn Wi-Fi off on the phone and it uses Bluetooth instead.
 - **On Windows:** is the Wi-Fi network set to **Private**, and is Slides Remote allowed through **Windows Defender Firewall** on private networks? See [On the computer](#1-on-the-computer). The dashboard's **Status** says whether phones can find the PC.
 - **Bluetooth** not allowed? The list of computers says so. Tap **Open Settings**, or go to **Settings ▸ Apps ▸ Slides Remote ▸ Permissions** and allow **Nearby devices** (Android 12 and later) or **Location** (Android 8 to 11). If you chose Not Now at first, tap **Turn On Bluetooth** on the list. Wi-Fi still works without it.
 - **Bluetooth off** on the phone? Turn it on in Quick Settings or **Settings ▸ Connected devices**. On a Mac, check **System Settings ▸ Privacy & Security ▸ Bluetooth**.
 - **Android 8 to 11: Location off** on the phone? On those versions finding Bluetooth devices needs it: turn it on in Quick Settings or **Settings ▸ Location**. (Slides Remote still never reads where you are.)
 
 ### The watch can't find my computer
-- Is **Slides Remote open on the computer**, and the watch within Bluetooth range (about 10 metres)? With a Windows PC, the watch connects over Wi-Fi or through your phone, not over Bluetooth.
+- Is **Slides Remote open on the computer**, and the watch within Bluetooth range (about 10 metres)?
 - **Bluetooth** not allowed on the watch? The list of computers says so: tap **Open Settings**, or on the watch go to **Settings ▸ Apps ▸ Slides Remote ▸ Permissions** and allow **Nearby devices** (Wear OS 4 and later) or **Location** (Wear OS 3). If you chose Not Now at first, tap **Turn On Bluetooth** on the list.
 - **Bluetooth off** on the watch? Turn it on in **Settings ▸ Connectivity ▸ Bluetooth**. **Wear OS 3: Location off?** Turn it on in **Settings ▸ Location**.
 - **Through the phone:** the Slides Remote app has to be installed on your phone, and the phone on the computer's Wi-Fi network and near the watch. The phone app doesn't need to be open.
 
 ### "Waiting for <your computer>" / the computer went to sleep
-When the computer sleeps, quits Slides Remote or goes out of range, the phone (or watch) waits and reconnects by itself when it's back. After 10 minutes it stops waiting and says so on the list of computers; tap the computer to connect again. **Stop Waiting** goes back to the list at once. To stop a Mac sleeping during a talk, leave **Settings ▸ General ▸ Keep Mac awake while remotes are connected** on, and keep the lid open. On Windows, set the PC not to sleep in **Settings ▸ System ▸ Power & battery** (**Power & sleep** on Windows 10).
+When the computer sleeps, quits Slides Remote or goes out of range, the phone (or watch) waits and reconnects by itself when it's back. After 10 minutes it stops waiting and says so on the list of computers; tap the computer to connect again. **Stop Waiting** goes back to the list at once. To stop a Mac sleeping during a talk, leave **Settings ▸ General ▸ Keep Mac awake while remotes are connected** on, and keep the lid open. On Windows, leave **Settings ▸ General ▸ Keep this PC awake while remotes are connected** on (on a laptop, closing the lid can still sleep it).
 
 ### The remote says it worked but the slides don't move
 - **Click your presentation's window on the computer** so it's the app in front. The keys go to whichever app is in front. If Slides Remote itself is in front, the remote says so.

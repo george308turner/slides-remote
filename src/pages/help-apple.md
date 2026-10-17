@@ -1,19 +1,23 @@
 # Slides Remote Help
 
-Slides Remote lets you change slides on your computer from your iPhone or Apple Watch, see your notes for each slide and keep to time. Questions not answered here: {{EMAIL}}.
+Slides Remote lets you change slides on your computer (a Mac or a Windows PC) from your iPhone or Apple Watch, see your notes for each slide and keep to time. Questions not answered here: {{EMAIL}}.
 
-**Contents:** [Getting started](#getting-started) · [Pairing](#pairing) · [How the devices connect](#how-the-devices-connect) · [Apple Watch](#apple-watch) · [Notes](#notes) · [Timers](#timers) · [The unlock, free trial and restoring](#the-unlock-free-trial-and-restoring) · [Settings on the Mac](#settings-on-the-mac) · [Troubleshooting](#troubleshooting) · [Privacy](#privacy)
+**Contents:** [Getting started](#getting-started) · [Pairing](#pairing) · [How the devices connect](#how-the-devices-connect) · [Apple Watch](#apple-watch) · [Notes](#notes) · [Timers](#timers) · [The unlock, free trial and restoring](#the-unlock-free-trial-and-restoring) · [Settings on the computer](#settings-on-the-computer) · [Troubleshooting](#troubleshooting) · [Privacy](#privacy)
 
 ---
 
 ## Getting started
 
 You need:
-- **A Mac** with macOS 26 or later and the free **Slides Remote** app from the Mac App Store.
+- **A computer** with Slides Remote on it:
+  - **On a Mac:** macOS 26 or later and the free **Slides Remote** app from the Mac App Store.
+  - **On Windows:** Windows 10 (version 2004 or later) or Windows 11 and the free **Slides Remote for Windows** from the Microsoft Store.
 - **An iPhone** with iOS 26 or later and the free **Slides Remote** app from the App Store. The Apple Watch app (watchOS 26 or later) comes with it.
 - The computer and iPhone on **the same Wi-Fi network**, or close enough for **Bluetooth** (about 10 metres). No internet connection is needed.
 
-### 1. On the Mac
+### 1. On the computer
+
+**On a Mac:**
 1. Open **Slides Remote**. It explains why it needs to press keys: that's how it changes slides in Keynote, PowerPoint and other apps.
 2. Click **Open System Settings…**. macOS shows its own message; open System Settings and turn on **Slides Remote** under **Privacy & Security ▸ Accessibility**. Back in the app, the next screen comes by itself.
 3. Click **Continue** and **Allow** Bluetooth, so your iPhone and watch can find the Mac without Wi-Fi.
@@ -21,6 +25,13 @@ You need:
 You can choose **Not Now** on either screen; the dashboard's Status section then shows what's missing, with a button to turn it on later.
 
 **Why Accessibility?** macOS lets an app press keys for another app only with this permission. Slides Remote presses a key only when you choose a command (Next, Previous, Start Show…) on a remote or on the Mac. It doesn't read your screen, other apps or what you type.
+
+**On Windows:**
+1. Open **Slides Remote**. The first time, it shows two screens: **Let Your Phones and Watches Find This PC** and **Connect Without Wi-Fi** (Bluetooth, so your iPhone and watch nearby can connect where there's no shared Wi-Fi). Click **Continue** on each.
+2. Set your Wi-Fi network to **Private** (**Settings ▸ Network & internet ▸ Wi-Fi**, then your network): Slides Remote is allowed through **Windows Defender Firewall** on private networks only. If Windows asks, allow it on **private networks**. To change it later: **Windows Security ▸ Firewall & network protection ▸ Allow an app through firewall**.
+3. The dashboard opens, and Slides Remote's icon appears in the notification area at the right of the taskbar (Windows 11 may put it under **^**; drag it onto the taskbar to keep it in view). Closing the dashboard keeps Slides Remote running; open it again from the icon (**Open Dashboard…**). Under **Status**, Wi-Fi and Bluetooth say **On** when your iPhone and watch can find the PC.
+
+Windows needs no Accessibility permission. Slides Remote presses a key only when you choose a command on a remote or on the computer.
 
 ### 2. On the iPhone
 1. Open **Slides Remote**. Tap **Continue** and **Allow** Bluetooth, then **Continue** and **Allow** Local Network (that's how it finds the computer on Wi-Fi). Either one is enough to work; both is best.
@@ -30,7 +41,7 @@ You can choose **Not Now** on either screen; the dashboard's Status section then
 1. On the computer, open your presentation and click its window so it's in front. Start the slideshow there or with **Start Show** on the iPhone.
 2. Tap **Next** and **Previous**. That's it.
 
-Slides Remote works with **Keynote, PowerPoint, Google Slides (in a browser), Preview** and most other presentation apps, by pressing the keys you would press yourself.
+Slides Remote works with **PowerPoint, Google Slides (in a browser)** and most other presentation apps, plus **Keynote and Preview** on a Mac and **LibreOffice Impress, Keynote for iCloud (in a browser) and PDF viewers** on Windows, by pressing the keys you would press yourself. On Windows it can also control PowerPoint directly and follow its slide.
 
 ---
 
@@ -38,7 +49,7 @@ Slides Remote works with **Keynote, PowerPoint, Google Slides (in a browser), Pr
 
 You pair each iPhone or watch with your computer once. It keeps others nearby from controlling your slides.
 
-1. On the computer, click **Pair New Device…** on the dashboard (also in the **Slides** menu).
+1. On the computer, click **Pair New Device…** on the dashboard (on a Mac, also in the **Slides** menu; on Windows, also in the Slides Remote icon's menu in the notification area).
 2. On the iPhone or watch, tap your computer.
 3. **Both screens show the same 6-digit code.** Check they match, then tap **Confirm** on the iPhone (or watch) and click **Confirm** on the computer. If they don't match, choose **Doesn't Match** on either and try again.
 
@@ -107,23 +118,29 @@ Notes are plain text, up to about 16,000 characters per slide. They're kept on t
 - **An unlocked device shares notes and timers with the devices connected to it.** The unlock is bought on the computer or on the iPhone (the iPhone's unlock includes its Apple Watch), and either one is enough: a paid computer unlocks every iPhone and watch connected to it, and a paid iPhone or watch unlocks the computer it's connected to. While that's how a device is unlocked, it says "Unlocked while *name* is connected" (Mac: **Settings ▸ General ▸ Notes & Timers** and under the dashboard's notes; iPhone: the **More** menu and beside **Notes**). The share ends when you disconnect, or revoke the device on the computer, or about a minute after the connection is lost (so a short drop or a change of link doesn't lock anything). It isn't passed on: a paid iPhone unlocks the computer, not the other devices connected to that computer. A free trial isn't shared.
 - **Free trial:** tap **Unlock…** on a locked card, then **Start 7-Day Free Trial**. It unlocks everything for 7 days and then simply ends: nothing is charged and nothing renews. You can buy the unlock at any time during the trial.
 - **Family Sharing:** the unlock is shared with your family group (the trial isn't).
-- **Restore Purchases:** after reinstalling, or on another iPhone or Mac with the same Apple Account. iPhone: **More ▸ Restore Purchases**; Mac: **Settings ▸ General ▸ Notes & Timers ▸ Restore Purchases** (also in the unlock sheet).
+- **Restore Purchases:** after reinstalling, or on another iPhone or Mac with the same Apple Account (on Windows, with the same Microsoft account; the PC's unlock is bought in the Microsoft Store). iPhone: **More ▸ Restore Purchases**; Mac: **Settings ▸ General ▸ Notes & Timers ▸ Restore Purchases** (also in the unlock sheet).
 - **The watch** reads the iPhone's purchase; there's nothing to buy on the watch ("Unlock on your iPhone").
 - **Refunds** are handled by Apple: [reportaproblem.apple.com](https://reportaproblem.apple.com).
 
 ---
 
-## Settings on the Mac
+## Settings on the computer
 
-Open **Slides Remote ▸ Settings…** (⌘,).
+**On Windows**, click **Settings…** on the dashboard.
+
+- **General:** **Keep this PC awake while remotes are connected** (the display also stays on while the slideshow plays); Notes & Timers status, Unlock and Restore Purchases.
+- **Presentation:** **Control with**: **Automatic** (controls PowerPoint directly when it's in front, and follows its slide; key presses for every other app), **Keystrokes** or **PowerPoint**.
+- **Keys:** the key each command presses, for each app (PowerPoint, LibreOffice Impress, Google Slides in a browser, Keynote for iCloud in a browser, PDF viewers, Other Apps). Click a key and press a new one, choose **None**, or **Use Default**.
+
+**On a Mac**, open **Slides Remote ▸ Settings…** (⌘,).
 
 - **General:** show the menu bar item; **Keep Mac awake while remotes are connected** (on by default; the display also stays on during the slideshow; closing the lid still sleeps the Mac); Notes & Timers status, Unlock and Restore Purchases.
 - **Presentation:** **Presentation app** (Automatic, or always a chosen app); **Control with** (Keystrokes); **Return to Slides Remote after Next or Previous** (off by default; see below).
 - **Keys:** the key each command presses, for each app (Keynote, PowerPoint, Preview, Google Slides in a browser, Other Apps). Click a key and press a new one, choose **None**, or **Use Default**. Useful if your app uses different keys, for example W for a white screen in Keynote.
 - **Shortcuts:** the Mac's own Next Slide and Previous Slide shortcuts (⌘] and ⌘[ by default).
 
-### Next and Previous on the Mac itself
-The dashboard's buttons, the **Slides** menu, the **Dock** menu (right-click the Dock icon) and the **menu bar** item all change slides too. If Slides Remote is in front, it first switches to your presentation (the app chosen in Settings ▸ Presentation, or the one you were using before), then presses the key. With **Return to Slides Remote after Next or Previous** on, it comes back to the front afterwards; handy while rehearsing at the Mac.
+### Next and Previous on the computer itself
+The dashboard's buttons change slides too. **On Windows**, so do **Next Slide** and **Previous Slide** in the Slides Remote icon's menu in the notification area; click your presentation's window once first so Slides Remote knows which it is. **On a Mac**, so do the **Slides** menu, the **Dock** menu (right-click the Dock icon) and the **menu bar** item. If Slides Remote is in front, it first switches to your presentation (the app chosen in Settings ▸ Presentation, or the one you were using before), then presses the key. With **Return to Slides Remote after Next or Previous** on, it comes back to the front afterwards; handy while rehearsing at the Mac.
 
 ---
 
@@ -136,18 +153,19 @@ An old **system** Bluetooth pairing between this iPhone and Mac gets in the way 
 3. Try again. You don't need to pair Slides Remote again.
 
 ### The iPhone can't find my computer
-- Is **Slides Remote open on the computer**? It has to be running (it can be in the menu bar).
+- Is **Slides Remote open on the computer**? It has to be running (on a Mac it can be in the menu bar; on Windows, in the notification area).
+- **On Windows:** is the Wi-Fi network set to **Private**, and is Slides Remote allowed through **Windows Defender Firewall** on private networks? See [On the computer](#1-on-the-computer). The dashboard's **Status** says whether phones can find the PC.
 - Same **Wi-Fi network**? Many guest, hotel and conference networks stop devices seeing each other: turn Wi-Fi off on the iPhone and it uses Bluetooth instead.
 - **Local Network** turned down? The computer list says so. Turn it on in **Settings ▸ Apps ▸ Slides Remote ▸ Local Network**. Bluetooth still works without it.
-- **Bluetooth** off or not allowed? Check **Settings ▸ Bluetooth** and **Settings ▸ Apps ▸ Slides Remote ▸ Bluetooth** on the iPhone, and **System Settings ▸ Privacy & Security ▸ Bluetooth** on the Mac.
+- **Bluetooth** off or not allowed? Check **Settings ▸ Bluetooth** and **Settings ▸ Apps ▸ Slides Remote ▸ Bluetooth** on the iPhone, and **System Settings ▸ Privacy & Security ▸ Bluetooth** on a Mac (on Windows, **Settings ▸ Bluetooth & devices**).
 
 ### "Waiting for <your computer>…" / the computer went to sleep
-When the computer sleeps, quits Slides Remote or goes out of range, the iPhone and watch wait and reconnect by themselves when it's back (within about 10 seconds of it waking). After 10 minutes they stop waiting; tap the computer to connect again. To stop a Mac sleeping during a talk, leave **Settings ▸ General ▸ Keep Mac awake while remotes are connected** on, and keep the lid open.
+When the computer sleeps, quits Slides Remote or goes out of range, the iPhone and watch wait and reconnect by themselves when it's back (within about 10 seconds of it waking). After 10 minutes they stop waiting; tap the computer to connect again. To stop a Mac sleeping during a talk, leave **Settings ▸ General ▸ Keep Mac awake while remotes are connected** on, and keep the lid open. On Windows, leave **Settings ▸ General ▸ Keep this PC awake while remotes are connected** on (on a laptop, closing the lid can still sleep it).
 
 ### The remote says it worked but the slides don't move
 - **Click your presentation's window on the computer** so it's the app in front. The keys go to whichever app is in front. If Slides Remote itself is in front, the remotes say so.
 - Is the **slideshow playing**? Some apps (PowerPoint, Google Slides) only use the arrow keys for slides while presenting.
-- **"The computer can't change slides…"**: Accessibility is off for Slides Remote. Turn it on in **System Settings ▸ Privacy & Security ▸ Accessibility** (if it's already on, turn it off and on again). Notes and the timer still work meanwhile.
+- **"The computer can't change slides…"**: Slides Remote doesn't have permission to press keys in your presentation. **On a Mac**, turn on Accessibility for it in **System Settings ▸ Privacy & Security ▸ Accessibility** (if it's already on, turn it off and on again). **On Windows**, the slideshow is running as administrator, so Windows won't let Slides Remote press keys in it: run the slideshow normally, or run Slides Remote as administrator too. Notes and the timer still work meanwhile.
 - **A particular app** ignores the keys or uses others: change them in **Settings ▸ Keys** for that app, or under **Other Apps**.
 - **Google Slides:** the browser tab with the presentation has to be in front, and the presentation playing.
 - The slide number is off by a few: use **Resync…** in the iPhone's More menu.
@@ -156,7 +174,7 @@ When the computer sleeps, quits Slides Remote or goes out of range, the iPhone a
 Check **Keep in Front** is on (Show page), and that the show or timer was running (it starts with them). If watchOS ended it, the watch says so; raise your wrist to bring it back. See [Keep in Front and Return to Clock](#keep-in-front-and-return-to-clock).
 
 ### Notes or the timer are locked
-They're part of the unlock. Start the free trial, buy the unlock, or **Restore Purchases** if you already bought it. The computer and iPhone are unlocked separately.
+They're part of the unlock. Start the free trial, buy the unlock, or **Restore Purchases** if you already bought it. Or connect to a computer or iPhone that has the unlock: it shares notes and timers while you're connected (see [The unlock, free trial and restoring](#the-unlock-free-trial-and-restoring)).
 
 ### The iPhone's screen stays on
 While connected to a computer, the iPhone doesn't lock by itself, so the remote is ready mid-talk. Turn this off in **More ▸ Keep Screen On**.
