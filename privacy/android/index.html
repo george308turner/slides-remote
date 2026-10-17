@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slides Remote for Android and Wear OS Privacy Policy</title>
+<meta name="description" content="This policy covers the Slides Remote app for Android phones and Wear OS watches (&quot;Slides Remote&quot;, &quot;the app&quot;), made by George Turner (&quot;we&quot;). The Slides Remote apps for Mac, iPhone and Apple Watch have their own policy at ../../privacy/; this one covers the Android and Wear OS apps and what they exchange with each other and with the Slides Remote app on your computer, a Mac or a Windows PC. Slides Remote for Windows, like the Mac app, keeps its data on the PC itself (pairing keys and its own identifier, in the PC&#x27;s local app data folder), needs no account and sends nothing to us. In short: we don&#x27;t collect any of your data. The app works entirely on your own devices, and nothing is sent to us.">
+<link rel="canonical" href="https://george308turner.github.io/slides-remote/privacy/android/">
+<link rel="icon" href="../../assets/favicon.png">
+<link rel="apple-touch-icon" href="../../assets/icon.png">
+<style>
+
+  :root {
+    --accent: #584feb;
+    --accent-2: #4a3fd6;
+    --accent-soft: #ecebff;
+    --bg: #ffffff;
+    --bg-alt: #f5f5f7;
+    --card: #ffffff;
+    --text: #1d1d1f;
+    --muted: #6e6e73;
+    --line: #e3e3e8;
+    --live: #e0141e;
+    --ahead: #1a8a4a;
+    --behind: #c4410c;
+    --chrome: rgb(255 255 255 / .72);
+    --chrome-edge: rgb(0 0 0 / .08);
+    --shadow: 0 1px 2px rgb(0 0 0 / .04), 0 12px 40px rgb(30 20 120 / .10);
+    --shadow-lg: 0 2px 4px rgb(0 0 0 / .05), 0 30px 80px rgb(30 20 120 / .18);
+    --spring: cubic-bezier(.2, .9, .25, 1);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --accent: #7a73ff;
+      --accent-2: #6a62f5;
+      --accent-soft: #24224a;
+      --bg: #0b0b0f;
+      --bg-alt: #141419;
+      --card: #1b1b22;
+      --text: #f5f5f7;
+      --muted: #a1a1aa;
+      --line: #2a2a33;
+      --ahead: #4cd486;
+      --behind: #ff9a5c;
+      --chrome: rgb(18 18 24 / .7);
+      --chrome-edge: rgb(255 255 255 / .08);
+      --shadow: 0 1px 2px rgb(0 0 0 / .3), 0 12px 40px rgb(0 0 0 / .45);
+      --shadow-lg: 0 2px 4px rgb(0 0 0 / .3), 0 30px 80px rgb(0 0 0 / .6);
+    }
+  }
+  :root[data-theme="dark"] {
+    --accent: #7a73ff; --accent-2: #6a62f5; --accent-soft: #24224a;
+    --bg: #0b0b0f; --bg-alt: #141419; --card: #1b1b22; --text: #f5f5f7;
+    --muted: #a1a1aa; --line: #2a2a33; --ahead: #4cd486; --behind: #ff9a5c;
+    --chrome: rgb(18 18 24 / .7); --chrome-edge: rgb(255 255 255 / .08);
+    --shadow: 0 1px 2px rgb(0 0 0 / .3), 0 12px 40px rgb(0 0 0 / .45);
+    --shadow-lg: 0 2px 4px rgb(0 0 0 / .3), 0 30px 80px rgb(0 0 0 / .6);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 1.0625rem/1.5 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-optical-sizing: auto; letter-spacing: -0.003em;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+  @media (min-width: 720px) { .wrap { padding: 0 32px; } }
+
+  /* Nav */
+  nav { position: sticky; top: 0; z-index: 10; backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px);
+        background: var(--chrome); box-shadow: 0 1px 0 transparent; transition: box-shadow .25s ease; }
+  nav.scrolled { box-shadow: 0 1px 0 var(--chrome-edge); }
+  nav::after { content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 14px; pointer-events: none;
+        background: linear-gradient(var(--chrome-edge), transparent); opacity: 0; transition: opacity .25s ease; }
+  nav.scrolled::after { opacity: .6; }
+  nav .wrap { display: flex; align-items: center; gap: 24px; height: 56px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--text); }
+  .brand img { width: 28px; height: 28px; border-radius: 7px; }
+  nav .links { margin-left: auto; display: flex; gap: 22px; font-size: 0.9375rem; }
+  nav .links a { color: var(--muted); letter-spacing: 0; transition: color .15s ease; }
+  nav .links a:hover, nav .links a[aria-current="true"] { color: var(--text); text-decoration: none; }
+  nav .links a[aria-current="true"] { font-weight: 600; }
+  @media (max-width: 640px) { nav .links a:not(.keep) { display: none; } }
+
+  /* Hero */
+  .hero { padding: 72px 0 40px; text-align: center; overflow: hidden; }
+  .hero .icon { width: 96px; height: 96px; border-radius: 22px; margin: 0 auto 24px; box-shadow: var(--shadow); }
+  h1 { font-size: clamp(2.5rem, 7vw, 4.5rem); line-height: 1.04; letter-spacing: -0.03em; margin: 0 0 18px; font-weight: 700; }
+  h1 .grad { background: linear-gradient(120deg, var(--accent), #a35cff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .lede { font-size: clamp(1.1875rem, 2.4vw, 1.4375rem); color: var(--muted); max-width: 640px; margin: 0 auto 32px; line-height: 1.4; }
+  .ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: 999px; font-weight: 600; font-size: 1rem; border: 0; cursor: pointer; font-family: inherit; }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: var(--accent-2); text-decoration: none; }
+  .btn-ghost { background: var(--accent-soft); color: var(--accent); }
+  .btn-ghost:hover { text-decoration: none; filter: brightness(.97); }
+  .platforms { margin-top: 22px; font-size: 0.875rem; letter-spacing: .01em; color: var(--muted); }
+
+  .hero-shots { position: relative; margin: 56px auto 0; max-width: 980px; height: clamp(320px, 52vw, 560px); }
+  .hero-shots .mac { position: absolute; left: 0; right: 0; top: 30px; margin: 0 auto; width: 88%; border-radius: 12px; box-shadow: var(--shadow-lg); }
+  .hero-shots .phone { position: absolute; right: 2%; bottom: 0; width: 24%; border-radius: 9% / 4.2%; box-shadow: var(--shadow); border: 4px solid #1d1d1f; }
+  .hero-shots .watch { position: absolute; left: 3%; bottom: 4%; width: 15%; border-radius: 22%; box-shadow: var(--shadow); border: 5px solid #1d1d1f; }
+
+  section { padding: 88px 0; }
+  section.alt { background: var(--bg-alt); }
+  .eyebrow { color: var(--accent); font-weight: 600; font-size: 0.9375rem; letter-spacing: .005em; margin-bottom: 8px; }
+  h2 { font-size: clamp(1.875rem, 4.4vw, 2.875rem); line-height: 1.1; letter-spacing: -0.025em; margin: 0 0 14px; }
+  .sub { color: var(--muted); font-size: 1.1875rem; max-width: 640px; margin: 0 0 40px; }
+  .center { text-align: center; }
+  .center .sub { margin-left: auto; margin-right: auto; }
+
+  /* Demo */
+  .demo { display: grid; grid-template-columns: 1.5fr 1fr; gap: 28px; align-items: stretch; }
+  @media (max-width: 860px) { .demo { grid-template-columns: 1fr; } }
+  .screen { background: #111; border-radius: 16px; padding: 14px; box-shadow: var(--shadow); display: flex; flex-direction: column; }
+  .screen .bar { display: flex; gap: 6px; padding: 0 2px 10px; }
+  .screen .bar i { width: 10px; height: 10px; border-radius: 50%; background: #444; }
+  .slide { position: relative; flex: 1; min-height: 260px; aspect-ratio: 16 / 10; border-radius: 8px; overflow: hidden; display: grid; place-items: center; text-align: center; padding: 24px; color: #fff; transition: background .4s; }
+  .slide h3 { margin: 0; font-size: clamp(1.5rem, 3.6vw, 2.5rem); letter-spacing: -0.02em; line-height: 1.15; }
+  .slide p { margin: 10px 0 0; opacity: .8; font-size: clamp(0.875rem, 1.7vw, 1.125rem); }
+  .slide .content { will-change: transform, opacity; }
+  .slide .num { position: absolute; right: 14px; bottom: 10px; font-size: 0.8125rem; opacity: .6; }
+  .slide.blank { background: #000 !important; }
+  .slide.blank > * { visibility: hidden; }
+  .slide.off { background: #26262c !important; }
+  .slide.off h3, .slide.off p { opacity: .5; }
+
+  .remote { background: var(--card); border: 1px solid var(--line); border-radius: 28px; padding: 20px; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 12px; }
+  .remote .head { text-align: center; }
+  .remote .host { font-weight: 600; font-size: 0.9375rem; }
+  .remote .deck { color: var(--muted); font-size: 0.8125rem; }
+  .badge { display: inline-flex; align-items: center; gap: 5px; margin-top: 8px; padding: 2px 10px; border-radius: 999px; font-size: 0.8125rem; font-weight: 600; background: var(--line); color: var(--muted); }
+  .badge.live { background: var(--live); color: #fff; }
+  .count { text-align: center; font-weight: 700; line-height: 1; }
+  .count b { display: inline-block; font-size: 3.5rem; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; will-change: transform; }
+  .count span { font-size: 1.5rem; color: var(--muted); margin-left: 4px; }
+  .card { background: var(--bg-alt); border-radius: 16px; padding: 12px 14px; }
+  .timer { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .timer .t { font-size: 1.875rem; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
+  .timer .s { font-size: 0.8125rem; color: var(--muted); }
+  .timer .s .ahead { color: var(--ahead); }
+  .timer .s .behind { color: var(--behind); }
+  .timer { position: relative; }
+  .timer.cue { animation: cue .9s var(--spring); }
+  @keyframes cue { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 55%, transparent); transform: scale(1); }
+                   18% { transform: scale(1.025); }
+                   100% { box-shadow: 0 0 0 14px transparent; transform: scale(1); } }
+  .cue-msg { font-size: 0.8125rem; letter-spacing: .01em; font-weight: 600; color: var(--accent); min-height: 1.2em; margin-top: -4px; text-align: center; opacity: 0; transition: opacity .2s ease; }
+  .cue-msg.on { opacity: 1; }
+  .round { width: 44px; height: 44px; border-radius: 50%; border: 0; background: var(--line); color: var(--accent); cursor: pointer; display: grid; place-items: center; flex: none; }
+  .notes .label { font-size: 0.8125rem; color: var(--muted); font-weight: 600; margin-bottom: 4px; }
+  .notes .body { font-size: 0.9375rem; min-height: 66px; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .rbtn { border: 0; border-radius: 14px; background: var(--bg-alt); color: var(--accent); font-family: inherit; font-weight: 600; font-size: 0.9375rem; line-height: 1; padding: 13px 8px; cursor: pointer; }
+  .rbtn.big { padding: 24px 8px; font-size: 1.0625rem; border-radius: 20px; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .rbtn.next { background: var(--accent); color: #fff; }
+  .btn, .rbtn, .round, .theme-toggle { touch-action: manipulation; transition: transform .3s var(--spring), background-color .15s ease, filter .15s ease; }
+  .btn:active, .rbtn:active, .round:active, .theme-toggle:active { transform: scale(.96); transition-duration: .1s; }
+  .rbtn:active { filter: brightness(.94); }
+  .rbtn.next:active { filter: brightness(.9); }
+  .rbtn:focus-visible, .round:focus-visible, .btn:focus-visible { outline: 3px solid color-mix(in srgb, var(--accent) 50%, transparent); outline-offset: 2px; }
+  .hint { color: var(--muted); font-size: 0.875rem; letter-spacing: .01em; text-align: center; margin-top: 18px; }
+  kbd { font: 0.75rem ui-monospace, SFMono-Regular, Menlo, monospace; border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 5px; padding: 1px 6px; background: var(--card); }
+
+  /* Features */
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+  .feature { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 24px; }
+  .feature .ico { width: 40px; height: 40px; border-radius: 10px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; margin-bottom: 14px; }
+  .feature h3 { margin: 0 0 6px; font-size: 1.1875rem; letter-spacing: -0.01em; }
+  .feature p { margin: 0; color: var(--muted); font-size: 1rem; }
+
+  /* Split rows */
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  .split.rev > :first-child { order: 2; }
+  @media (max-width: 860px) { .split { grid-template-columns: 1fr; gap: 32px; } .split.rev > :first-child { order: 0; } }
+  .ticks { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+  .ticks li { padding-left: 30px; position: relative; color: var(--muted); }
+  .ticks li strong { color: var(--text); font-weight: 600; }
+  .ticks li::before { content: ""; position: absolute; left: 0; top: 4px; width: 18px; height: 18px; border-radius: 50%; background: var(--accent-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M5 9.5l2.5 2.5L13 6.5' fill='none' stroke='%23584feb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/18px no-repeat; }
+
+  .phones { display: flex; gap: 16px; justify-content: center; }
+  .phones img { width: 46%; max-width: 260px; border-radius: 9% / 4.2%; border: 4px solid #1d1d1f; box-shadow: var(--shadow); }
+  .phones img:nth-child(2) { margin-top: 48px; }
+  .watches { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .watches img { width: 30%; min-width: 120px; max-width: 200px; border-radius: 22%; border: 6px solid #1d1d1f; box-shadow: var(--shadow); }
+  .shot { border-radius: 12px; box-shadow: var(--shadow); }
+
+  /* Gallery */
+  .gallery { position: relative; cursor: grab; overscroll-behavior-x: contain; scrollbar-width: none; display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 8px 16px 24px; margin: 0 -16px; }
+  .gallery::-webkit-scrollbar { display: none; }
+  .gallery.dragging { cursor: grabbing; scroll-snap-type: none; user-select: none; }
+  .gallery.animating { scroll-snap-type: none; }
+  .gallery figure { transform: translateX(var(--rb, 0px)); margin: 0; flex: 0 0 auto; width: min(240px, 62vw); scroll-snap-align: center; }
+  .gallery img { -webkit-user-drag: none; border-radius: 9% / 4.2%; border: 4px solid #1d1d1f; box-shadow: var(--shadow); }
+  .gallery figcaption { text-align: center; color: var(--muted); font-size: 0.875rem; letter-spacing: .01em; margin-top: 12px; }
+
+  /* Pricing */
+  .prices { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 820px; margin: 0 auto; }
+  @media (max-width: 700px) { .prices { grid-template-columns: 1fr; } }
+  .price { background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 30px; text-align: left; }
+  .price.pro { border: 2px solid var(--accent); }
+  .price h3 { margin: 0; font-size: 1.25rem; }
+  .price .amt { font-size: 2.5rem; font-weight: 700; letter-spacing: -0.02em; margin: 6px 0 2px; }
+  .price .note { color: var(--muted); font-size: 0.875rem; letter-spacing: .01em; margin-bottom: 20px; }
+
+  /* Platforms table */
+  .plat { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+  .plat div { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; }
+  .plat b { display: block; font-size: 1.0625rem; }
+  .plat span { color: var(--muted); font-size: 0.875rem; }
+
+  footer { padding: 40px 0 56px; color: var(--muted); font-size: 0.875rem; border-top: 1px solid var(--line); }
+  footer .wrap { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+  footer .links { margin-left: auto; display: flex; gap: 20px; }
+  .theme-toggle { background: none; border: 1px solid var(--line); color: var(--muted); border-radius: 999px; padding: 4px 12px; cursor: pointer; font: inherit; font-size: 0.8125rem; }
+
+  /* Ease light/dark changes rather than snapping brightness */
+  html.theme-anim, html.theme-anim * { transition: background-color .35s ease, color .35s ease, border-color .35s ease !important; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .timer.cue { animation: cue-fade .9s ease; }
+    @keyframes cue-fade { 0%, 40% { background: var(--accent-soft); } 100% { background: var(--bg-alt); } }
+    .btn:active, .rbtn:active, .round:active, .theme-toggle:active { transform: none; }
+  }
+  @media (prefers-reduced-transparency: reduce) {
+    nav { background: var(--bg); backdrop-filter: none; -webkit-backdrop-filter: none; }
+  }
+  @media (prefers-contrast: more) {
+    html:root:root { --muted: color-mix(in srgb, var(--text) 82%, var(--bg)); --line: color-mix(in srgb, var(--text) 45%, var(--bg)); --chrome-edge: var(--line); }
+    nav { background: var(--bg); backdrop-filter: none; -webkit-backdrop-filter: none; box-shadow: 0 1px 0 var(--line); }
+    .feature, .price, .plat div, .remote { border-width: 2px; }
+  }
+
+  /* Language */
+  .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .lang-pick { position: relative; display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); border-radius: 999px; padding: 3px 4px 3px 11px; color: var(--muted); }
+  .lang-pick select { appearance: none; -webkit-appearance: none; background: none; border: 0; color: inherit; font: inherit; font-size: 0.8125rem; padding: 2px 8px 2px 0; cursor: pointer; }
+  .lang-pick:focus-within { outline: 3px solid color-mix(in srgb, var(--accent) 50%, transparent); outline-offset: 2px; }
+  .lang-pick select:focus { outline: none; }
+  .lang-banner { background: var(--accent-soft); color: var(--text); font-size: 0.9375rem; }
+  .lang-banner .wrap { display: flex; align-items: center; gap: 14px; min-height: 48px; flex-wrap: wrap; padding-top: 8px; padding-bottom: 8px; }
+  .lang-banner a { font-weight: 600; }
+  .lang-close { margin-left: auto; background: none; border: 0; color: var(--muted); font-size: 1.375rem; line-height: 1; cursor: pointer; padding: 4px 8px; border-radius: 8px; }
+
+  /* Chinese, Japanese and Korean: no negative tracking, a little more leading, and line breaks
+     between words or phrases rather than mid-word */
+  :lang(ja), :lang(ko), :lang(zh) { letter-spacing: 0 !important; }
+  :lang(ja) h1, :lang(ja) h2, :lang(ko) h1, :lang(ko) h2, :lang(zh) h1, :lang(zh) h2 { line-height: 1.25; }
+  :lang(ja) h1, :lang(ja) h2, :lang(ja) .lede, :lang(ja) .sub { word-break: auto-phrase; }
+  :lang(ko) { word-break: keep-all; }
+  :lang(ja) body, :lang(zh) body, :lang(ko) body { line-height: 1.7; }
+  h1, h2, h3 { text-wrap: balance; overflow-wrap: break-word; hyphens: auto; }
+  .sub, .lede { text-wrap: pretty; }
+
+  /* Documents: help, privacy, terms */
+  .doc { max-width: 760px; margin: 0 auto; padding: 48px 16px 72px; }
+  @media (min-width: 720px) { .doc { padding: 64px 32px 96px; } }
+  .doc h1 { font-size: clamp(2rem, 5vw, 2.75rem); line-height: 1.1; letter-spacing: -0.025em; margin: 0 0 16px; }
+  .doc h2 { font-size: 1.5rem; line-height: 1.2; letter-spacing: -0.015em; margin: 48px 0 12px; padding-top: 8px; }
+  .doc h3 { font-size: 1.1875rem; line-height: 1.3; letter-spacing: -0.01em; margin: 32px 0 8px; }
+  .doc h2, .doc h3 { scroll-margin-top: 72px; }
+  .doc p, .doc li { color: var(--text); }
+  .doc p { margin: 0 0 14px; }
+  .doc ul, .doc ol { margin: 0 0 16px; padding-left: 1.4em; }
+  .doc li { margin: 6px 0; }
+  .doc li > ul, .doc li > ol { margin: 6px 0 0; }
+  .doc em:only-child { color: var(--muted); }
+  .doc hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
+  .doc code { font: 0.875em ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--bg-alt); border: 1px solid var(--line); border-radius: 6px; padding: 1px 5px; }
+  .doc a { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .doc .back { display: inline-block; margin-bottom: 20px; font-size: 0.9375rem; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="../../"><img src="../../assets/icon.png" alt="">Slides Remote</a>
+    <div class="links">
+      <a href="../../support/" class="keep">Help</a>
+      <a href="../../privacy/">Privacy</a>
+      <a href="../../terms/">Terms</a>
+    </div>
+  </div>
+</nav>
+
+<main class="doc">
+<a class="back" href="../">‹ Privacy Policy</a>
+<h1 id="slides-remote-for-android-and-wear-os-privacy-policy">Slides Remote for Android and Wear OS Privacy Policy</h1>
+<p><em>Last updated: 17 October 2026</em></p>
+<p>This policy covers the Slides Remote app for Android phones and Wear OS watches ("Slides Remote", "the app"), made by George Turner ("we"). The Slides Remote apps for Mac, iPhone and Apple Watch have their own policy at <a href="../../privacy/">../../privacy/</a>; this one covers the Android and Wear OS apps and what they exchange with each other and with the Slides Remote app on your computer, a Mac or a Windows PC. Slides Remote for Windows, like the Mac app, keeps its data on the PC itself (pairing keys and its own identifier, in the PC's local app data folder), needs no account and sends nothing to us. In short: <strong>we don't collect any of your data.</strong> The app works entirely on your own devices, and nothing is sent to us.</p>
+<h2 id="what-the-app-stores-and-where">What the app stores, and where</h2>
+<ul>
+<li><strong>Presentations, notes and timer plans</strong> you create are stored on your computer, inside the computer app's own storage. They are sent to the Android phone and Wear OS watch you have paired with that computer, so you can read and edit them there (read them, on the watch), and nowhere else. The phone and watch keep them only while the app is connected; they don't save them.
+</li>
+<li><strong>Pairing keys:</strong> the phone and the watch each keep their own key, and the public key of each computer they're paired with, in a file in the app's private storage on that device. They are used only to recognise your devices and encrypt the connection between them. This file is never included in Android backups or transfers to a new phone or watch.
+</li>
+<li><strong>Your phone's or watch's name and a random device identifier</strong> made by the app are sent to the computer you pair with, so your computer can list the phone or watch ("Pixel 9", "Pixel Watch 3") and recognise it next time. The name is the one in the device's settings (or its model, if it has none).
+</li>
+<li><strong>Settings</strong> are stored on the device they apply to: on the phone, Volume buttons change slides, Keep screen on, and whether you've already been asked about Bluetooth; on the watch, Keep in Front and whether you've already been asked about Bluetooth and notifications. They aren't backed up. Nothing on the watch is backed up.
+</li>
+<li><strong>The free trial's start date</strong> is stored on the phone, and the phone shares it with your watch (below), so the watch shows notes and timers for the same 7 days. It is the one thing the app includes in <strong>Android backup</strong> and in transfers to a new phone, so a restored phone remembers that the trial was used. Android backup is a service of your phone's system: it is stored in your own Google account, under <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>, and we can't see it. It holds only that date. You can turn backup off in your phone's settings (usually Settings ▸ System ▸ Backup, or Settings ▸ Google ▸ Backup).
+</li></ul>
+<p>None of this leaves your devices except to travel between your own phone, watch and computer, and the trial date in your own backup. You can delete it at any time: removing the phone under Paired Devices on the computer, deleting a presentation on the computer, clearing the app's storage on the phone or watch (Settings ▸ Apps ▸ Slides Remote ▸ Storage ▸ Clear storage, or as the watch names it), or uninstalling the app removes the data it holds on that device. Your backup of the trial date is managed, and can be deleted, in your Google account.</p>
+<h2 id="how-your-devices-talk-to-each-other">How your devices talk to each other</h2>
+<p>Your phone, watch and computer connect directly over your local Wi-Fi network or Bluetooth (and, for the watch, through your phone). No internet connection and no server is involved; we don't run any servers. After you pair by comparing a 6-digit code on both screens, everything sent between your devices is <strong>encrypted end to end</strong>, so other devices on the network can't read it or send commands.</p>
+<p><strong>Between your phone and watch</strong>, the apps use the Wearable Data Layer of Google Play services, the part of your phone and watch that Wear OS uses to link them, for two things only:</p>
+<ul>
+<li><strong>The watch's connection to the computer, when it goes through your phone.</strong> The watch encrypts it for the computer (as above) before it reaches the phone; the phone app passes it on to your computer over your Wi-Fi network without being able to read it, and passes the computer's replies back.
+</li>
+<li><strong>The free trial's start date</strong>, which the phone publishes for its watch.
+</li></ul>
+<p>Google Play services carries these between your devices, directly over Bluetooth or Wi-Fi, and may carry them through Google's servers when your phone and watch aren't connected directly, under <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>. We don't receive any of it, and this adds no data that we collect.</p>
+<h2 id="what-we-dont-do">What we don't do</h2>
+<ul>
+<li>No accounts or sign-in.
+</li>
+<li>No analytics, usage statistics or crash reporting of our own.
+</li>
+<li>No advertising, no advertising ID and no tracking across apps or websites.
+</li>
+<li>No third-party software development kits (SDKs) other than Google's Play Billing Library for the in-app purchase (see Purchases).
+</li>
+<li>We don't sell, share or receive any personal information.
+</li></ul>
+<h2 id="permissions">Permissions</h2>
+<ul>
+<li><strong>Nearby devices (Android 12 and later, Wear OS 4 and later):</strong> to find and connect to your computer over Bluetooth without Wi-Fi. The app tells Android it never uses Bluetooth scans to work out your location.
+</li>
+<li><strong>Location (Android 8 to 11, and Wear OS 3, only):</strong> on these versions, Android allows an app to look for Bluetooth devices only with the Location permission. Slides Remote asks for it only to find your computer over Bluetooth. It never reads, uses or keeps your location.
+</li>
+<li><strong>Network access:</strong> to find your computer on your Wi-Fi network and connect to it. The app connects only to your computer on your local network, apart from Google Play's billing software (see Purchases) and Google Play services between your phone and watch (above). Android has no separate Local Network permission.
+</li>
+<li><strong>Vibration:</strong> to tap when the computer has changed the slide, and at the timer's warnings.
+</li>
+<li><strong>Running in the background (foreground service):</strong> on the phone, while your watch reaches the computer through it, with a notification saying so; on the watch, for <strong>Keep in Front</strong> while your show or timer runs, which also keeps the watch's processor awake so the link and the timer's taps stay on time. Neither collects anything.
+</li>
+<li><strong>Notifications (Wear OS 4 and later, watch only):</strong> asked for only from the Show page, so Keep in Front can show its icon on the watch face.
+</li></ul>
+<p>The app explains Bluetooth before Android or Wear OS asks. You can turn these off at any time in Settings ▸ Apps ▸ Slides Remote ▸ Permissions; the app then works over Wi-Fi (and the watch through your phone).</p>
+<h2 id="purchases">Purchases</h2>
+<p>The Notes &amp; Timers unlock is bought through Google Play. Google handles the payment and your purchase history under <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>. The app only asks Google Play whether your Google account owns the unlock; it receives no payment details and sends nothing to us. The watch asks Google Play on the watch in the same way and never sells anything. The free trial doesn't go through Google Play: it is the start date kept on the phone and shared with your watch (above).</p>
+<p>Google Play's billing software, which is built into the app to make the purchase possible, sends Google its own technical information about how the billing service works (for example whether a request succeeded) so Google can run and improve it. We don't receive this information.</p>
+<h2 id="crash-reports-from-google">Crash reports from Google</h2>
+<p>If you choose to share usage and diagnostics with Google in your phone's settings, Google may share crash and "app not responding" reports and performance statistics about the app with us (Android vitals in Google Play Console), without identifying you. This is Google's service, controlled by your phone's or watch's settings (usually Settings ▸ Google ▸ Usage &amp; diagnostics on the phone).</p>
+<h2 id="children">Children</h2>
+<p>The app collects no personal information from anyone, including children under 13.</p>
+<h2 id="changes">Changes</h2>
+<p>If the app ever starts collecting data (for example optional cloud sync of notes), we'll update this policy before that version is released and change the date above.</p>
+<h2 id="contact">Contact</h2>
+<p>Questions about privacy: <a href="mailto:georgeturner308@icloud.com">georgeturner308@icloud.com</a>.</p>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 George Turner</span>
+    <button class="theme-toggle" id="themeToggle" type="button"></button>
+    <div class="links">
+      <a href="../../">Home</a>
+      <a href="../../support/">Help</a>
+      <a href="../../privacy/">Privacy Policy</a>
+      <a href="../../terms/">Terms of Use</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  if (location.protocol === "file:") {
+    document.querySelectorAll("a[href]").forEach(a => {
+      const href = a.getAttribute("href");
+      if (/^([a-z]+:|#|\/\/)/i.test(href)) return;
+      const [path, hash = ""] = href.split("#");
+      if (path.endsWith("/")) a.setAttribute("href", path + "index.html" + (hash && "#" + hash));
+    });
+  }
+  const nav = document.querySelector("nav");
+  const onScroll = () => nav.classList.toggle("scrolled", scrollY > 4);
+  addEventListener("scroll", onScroll, { passive: true }); onScroll();
+
+  const here = location.pathname.replace(/index\.html$/, "");
+  nav.querySelectorAll(".links a").forEach(a => {
+    const target = new URL(a.href, location.href).pathname.replace(/index\.html$/, "");
+    if (here.startsWith(target)) a.setAttribute("aria-current", "true");
+  });
+
+  const modes = ["auto", "light", "dark"], names = { auto: "Auto", light: "Light", dark: "Dark" };
+  let mode = "auto";
+  try { mode = localStorage.getItem("theme") || "auto"; } catch (e) {}
+  const root = document.documentElement, toggle = document.getElementById("themeToggle");
+  const apply = () => {
+    if (mode === "auto") root.removeAttribute("data-theme"); else root.setAttribute("data-theme", mode);
+    toggle.textContent = "Theme: " + names[mode];
+  };
+  toggle.onclick = () => {
+    mode = modes[(modes.indexOf(mode) + 1) % modes.length];
+    try { localStorage.setItem("theme", mode); } catch (e) {}
+    root.classList.add("theme-anim"); apply();
+    setTimeout(() => root.classList.remove("theme-anim"), 400);
+  };
+  apply();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,903 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slides Remote</title>
+<meta name="description" content="iPhone、Apple Watch、Androidスマートフォンから、コンピュータのスライドを切り替えられます。スライドごとのノートと、時間どおりに進めるためのタイマーも確認できます。">
+<meta property="og:title" content="Slides Remote">
+<meta property="og:description" content="iPhone、Apple Watch、Androidスマートフォンで使える、プレゼン用リモコン、ノート、発表タイマー。">
+<meta property="og:locale" content="ja_JP">
+<link rel="canonical" href="https://george308turner.github.io/slides-remote/ja/">
+<link rel="alternate" hreflang="en" href="https://george308turner.github.io/slides-remote/">
+<link rel="alternate" hreflang="en-GB" href="https://george308turner.github.io/slides-remote/en-gb/">
+<link rel="alternate" hreflang="de" href="https://george308turner.github.io/slides-remote/de/">
+<link rel="alternate" hreflang="es" href="https://george308turner.github.io/slides-remote/es/">
+<link rel="alternate" hreflang="fr" href="https://george308turner.github.io/slides-remote/fr/">
+<link rel="alternate" hreflang="it" href="https://george308turner.github.io/slides-remote/it/">
+<link rel="alternate" hreflang="ja" href="https://george308turner.github.io/slides-remote/ja/">
+<link rel="alternate" hreflang="ko" href="https://george308turner.github.io/slides-remote/ko/">
+<link rel="alternate" hreflang="nl" href="https://george308turner.github.io/slides-remote/nl/">
+<link rel="alternate" hreflang="pl" href="https://george308turner.github.io/slides-remote/pl/">
+<link rel="alternate" hreflang="pt-BR" href="https://george308turner.github.io/slides-remote/pt-br/">
+<link rel="alternate" hreflang="ru" href="https://george308turner.github.io/slides-remote/ru/">
+<link rel="alternate" hreflang="zh-Hans" href="https://george308turner.github.io/slides-remote/zh-hans/">
+<link rel="alternate" hreflang="zh-Hant" href="https://george308turner.github.io/slides-remote/zh-hant/">
+<link rel="alternate" hreflang="x-default" href="https://george308turner.github.io/slides-remote/">
+<meta property="og:image" content="https://george308turner.github.io/slides-remote/assets/icon.png">
+<link rel="icon" href="../assets/favicon.png">
+<link rel="apple-touch-icon" href="../assets/icon.png">
+<style>
+  :root {
+    --accent: #584feb;
+    --accent-2: #4a3fd6;
+    --accent-soft: #ecebff;
+    --bg: #ffffff;
+    --bg-alt: #f5f5f7;
+    --card: #ffffff;
+    --text: #1d1d1f;
+    --muted: #6e6e73;
+    --line: #e3e3e8;
+    --live: #e0141e;
+    --ahead: #1a8a4a;
+    --behind: #c4410c;
+    --chrome: rgb(255 255 255 / .72);
+    --chrome-edge: rgb(0 0 0 / .08);
+    --shadow: 0 1px 2px rgb(0 0 0 / .04), 0 12px 40px rgb(30 20 120 / .10);
+    --shadow-lg: 0 2px 4px rgb(0 0 0 / .05), 0 30px 80px rgb(30 20 120 / .18);
+    --spring: cubic-bezier(.2, .9, .25, 1);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --accent: #7a73ff;
+      --accent-2: #6a62f5;
+      --accent-soft: #24224a;
+      --bg: #0b0b0f;
+      --bg-alt: #141419;
+      --card: #1b1b22;
+      --text: #f5f5f7;
+      --muted: #a1a1aa;
+      --line: #2a2a33;
+      --ahead: #4cd486;
+      --behind: #ff9a5c;
+      --chrome: rgb(18 18 24 / .7);
+      --chrome-edge: rgb(255 255 255 / .08);
+      --shadow: 0 1px 2px rgb(0 0 0 / .3), 0 12px 40px rgb(0 0 0 / .45);
+      --shadow-lg: 0 2px 4px rgb(0 0 0 / .3), 0 30px 80px rgb(0 0 0 / .6);
+    }
+  }
+  :root[data-theme="dark"] {
+    --accent: #7a73ff; --accent-2: #6a62f5; --accent-soft: #24224a;
+    --bg: #0b0b0f; --bg-alt: #141419; --card: #1b1b22; --text: #f5f5f7;
+    --muted: #a1a1aa; --line: #2a2a33; --ahead: #4cd486; --behind: #ff9a5c;
+    --chrome: rgb(18 18 24 / .7); --chrome-edge: rgb(255 255 255 / .08);
+    --shadow: 0 1px 2px rgb(0 0 0 / .3), 0 12px 40px rgb(0 0 0 / .45);
+    --shadow-lg: 0 2px 4px rgb(0 0 0 / .3), 0 30px 80px rgb(0 0 0 / .6);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 1.0625rem/1.5 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-optical-sizing: auto; letter-spacing: -0.003em;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+  @media (min-width: 720px) { .wrap { padding: 0 32px; } }
+
+  /* Nav */
+  nav { position: sticky; top: 0; z-index: 10; backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px);
+        background: var(--chrome); box-shadow: 0 1px 0 transparent; transition: box-shadow .25s ease; }
+  nav.scrolled { box-shadow: 0 1px 0 var(--chrome-edge); }
+  nav::after { content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 14px; pointer-events: none;
+        background: linear-gradient(var(--chrome-edge), transparent); opacity: 0; transition: opacity .25s ease; }
+  nav.scrolled::after { opacity: .6; }
+  nav .wrap { display: flex; align-items: center; gap: 24px; height: 56px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--text); }
+  .brand img { width: 28px; height: 28px; border-radius: 7px; }
+  nav .links { margin-left: auto; display: flex; gap: 22px; font-size: 0.9375rem; }
+  nav .links a { color: var(--muted); letter-spacing: 0; transition: color .15s ease; }
+  nav .links a:hover, nav .links a[aria-current="true"] { color: var(--text); text-decoration: none; }
+  nav .links a[aria-current="true"] { font-weight: 600; }
+  @media (max-width: 640px) { nav .links a:not(.keep) { display: none; } }
+
+  /* Hero */
+  .hero { padding: 72px 0 40px; text-align: center; overflow: hidden; }
+  .hero .icon { width: 96px; height: 96px; border-radius: 22px; margin: 0 auto 24px; box-shadow: var(--shadow); }
+  h1 { font-size: clamp(2.5rem, 7vw, 4.5rem); line-height: 1.04; letter-spacing: -0.03em; margin: 0 0 18px; font-weight: 700; }
+  h1 .grad { background: linear-gradient(120deg, var(--accent), #a35cff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .lede { font-size: clamp(1.1875rem, 2.4vw, 1.4375rem); color: var(--muted); max-width: 640px; margin: 0 auto 32px; line-height: 1.4; }
+  .ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: 999px; font-weight: 600; font-size: 1rem; border: 0; cursor: pointer; font-family: inherit; }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: var(--accent-2); text-decoration: none; }
+  .btn-ghost { background: var(--accent-soft); color: var(--accent); }
+  .btn-ghost:hover { text-decoration: none; filter: brightness(.97); }
+  .platforms { margin-top: 22px; font-size: 0.875rem; letter-spacing: .01em; color: var(--muted); }
+
+  .hero-shots { position: relative; margin: 56px auto 0; max-width: 980px; height: clamp(320px, 52vw, 560px); }
+  .hero-shots .mac { position: absolute; left: 0; right: 0; top: 30px; margin: 0 auto; width: 88%; border-radius: 12px; box-shadow: var(--shadow-lg); }
+  .hero-shots .phone { position: absolute; right: 2%; bottom: 0; width: 24%; border-radius: 9% / 4.2%; box-shadow: var(--shadow); border: 4px solid #1d1d1f; }
+  .hero-shots .watch { position: absolute; left: 3%; bottom: 4%; width: 15%; border-radius: 22%; box-shadow: var(--shadow); border: 5px solid #1d1d1f; }
+
+  section { padding: 88px 0; }
+  section.alt { background: var(--bg-alt); }
+  .eyebrow { color: var(--accent); font-weight: 600; font-size: 0.9375rem; letter-spacing: .005em; margin-bottom: 8px; }
+  h2 { font-size: clamp(1.875rem, 4.4vw, 2.875rem); line-height: 1.1; letter-spacing: -0.025em; margin: 0 0 14px; }
+  .sub { color: var(--muted); font-size: 1.1875rem; max-width: 640px; margin: 0 0 40px; }
+  .center { text-align: center; }
+  .center .sub { margin-left: auto; margin-right: auto; }
+
+  /* Demo */
+  .demo { display: grid; grid-template-columns: 1.5fr 1fr; gap: 28px; align-items: stretch; }
+  @media (max-width: 860px) { .demo { grid-template-columns: 1fr; } }
+  .screen { background: #111; border-radius: 16px; padding: 14px; box-shadow: var(--shadow); display: flex; flex-direction: column; }
+  .screen .bar { display: flex; gap: 6px; padding: 0 2px 10px; }
+  .screen .bar i { width: 10px; height: 10px; border-radius: 50%; background: #444; }
+  .slide { position: relative; flex: 1; min-height: 260px; aspect-ratio: 16 / 10; border-radius: 8px; overflow: hidden; display: grid; place-items: center; text-align: center; padding: 24px; color: #fff; transition: background .4s; }
+  .slide h3 { margin: 0; font-size: clamp(1.5rem, 3.6vw, 2.5rem); letter-spacing: -0.02em; line-height: 1.15; }
+  .slide p { margin: 10px 0 0; opacity: .8; font-size: clamp(0.875rem, 1.7vw, 1.125rem); }
+  .slide .content { will-change: transform, opacity; }
+  .slide .num { position: absolute; right: 14px; bottom: 10px; font-size: 0.8125rem; opacity: .6; }
+  .slide.blank { background: #000 !important; }
+  .slide.blank > * { visibility: hidden; }
+  .slide.off { background: #26262c !important; }
+  .slide.off h3, .slide.off p { opacity: .5; }
+
+  .remote { background: var(--card); border: 1px solid var(--line); border-radius: 28px; padding: 20px; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 12px; }
+  .remote .head { text-align: center; }
+  .remote .host { font-weight: 600; font-size: 0.9375rem; }
+  .remote .deck { color: var(--muted); font-size: 0.8125rem; }
+  .badge { display: inline-flex; align-items: center; gap: 5px; margin-top: 8px; padding: 2px 10px; border-radius: 999px; font-size: 0.8125rem; font-weight: 600; background: var(--line); color: var(--muted); }
+  .badge.live { background: var(--live); color: #fff; }
+  .count { text-align: center; font-weight: 700; line-height: 1; }
+  .count b { display: inline-block; font-size: 3.5rem; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; will-change: transform; }
+  .count span { font-size: 1.5rem; color: var(--muted); margin-left: 4px; }
+  .card { background: var(--bg-alt); border-radius: 16px; padding: 12px 14px; }
+  .timer { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .timer .t { font-size: 1.875rem; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
+  .timer .s { font-size: 0.8125rem; color: var(--muted); }
+  .timer .s .ahead { color: var(--ahead); }
+  .timer .s .behind { color: var(--behind); }
+  .timer { position: relative; }
+  .timer.cue { animation: cue .9s var(--spring); }
+  @keyframes cue { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 55%, transparent); transform: scale(1); }
+                   18% { transform: scale(1.025); }
+                   100% { box-shadow: 0 0 0 14px transparent; transform: scale(1); } }
+  .cue-msg { font-size: 0.8125rem; letter-spacing: .01em; font-weight: 600; color: var(--accent); min-height: 1.2em; margin-top: -4px; text-align: center; opacity: 0; transition: opacity .2s ease; }
+  .cue-msg.on { opacity: 1; }
+  .round { width: 44px; height: 44px; border-radius: 50%; border: 0; background: var(--line); color: var(--accent); cursor: pointer; display: grid; place-items: center; flex: none; }
+  .notes .label { font-size: 0.8125rem; color: var(--muted); font-weight: 600; margin-bottom: 4px; }
+  .notes .body { font-size: 0.9375rem; min-height: 66px; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .rbtn { border: 0; border-radius: 14px; background: var(--bg-alt); color: var(--accent); font-family: inherit; font-weight: 600; font-size: 0.9375rem; line-height: 1; padding: 13px 8px; cursor: pointer; }
+  .rbtn.big { padding: 24px 8px; font-size: 1.0625rem; border-radius: 20px; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .rbtn.next { background: var(--accent); color: #fff; }
+  .btn, .rbtn, .round, .theme-toggle { touch-action: manipulation; transition: transform .3s var(--spring), background-color .15s ease, filter .15s ease; }
+  .btn:active, .rbtn:active, .round:active, .theme-toggle:active { transform: scale(.96); transition-duration: .1s; }
+  .rbtn:active { filter: brightness(.94); }
+  .rbtn.next:active { filter: brightness(.9); }
+  .rbtn:focus-visible, .round:focus-visible, .btn:focus-visible { outline: 3px solid color-mix(in srgb, var(--accent) 50%, transparent); outline-offset: 2px; }
+  .hint { color: var(--muted); font-size: 0.875rem; letter-spacing: .01em; text-align: center; margin-top: 18px; }
+  kbd { font: 0.75rem ui-monospace, SFMono-Regular, Menlo, monospace; border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 5px; padding: 1px 6px; background: var(--card); }
+
+  /* Features */
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+  .feature { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 24px; }
+  .feature .ico { width: 40px; height: 40px; border-radius: 10px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; margin-bottom: 14px; }
+  .feature h3 { margin: 0 0 6px; font-size: 1.1875rem; letter-spacing: -0.01em; }
+  .feature p { margin: 0; color: var(--muted); font-size: 1rem; }
+
+  /* Split rows */
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  .split.rev > :first-child { order: 2; }
+  @media (max-width: 860px) { .split { grid-template-columns: 1fr; gap: 32px; } .split.rev > :first-child { order: 0; } }
+  .ticks { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+  .ticks li { padding-left: 30px; position: relative; color: var(--muted); }
+  .ticks li strong { color: var(--text); font-weight: 600; }
+  .ticks li::before { content: ""; position: absolute; left: 0; top: 4px; width: 18px; height: 18px; border-radius: 50%; background: var(--accent-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M5 9.5l2.5 2.5L13 6.5' fill='none' stroke='%23584feb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/18px no-repeat; }
+
+  .phones { display: flex; gap: 16px; justify-content: center; }
+  .phones img { width: 46%; max-width: 260px; border-radius: 9% / 4.2%; border: 4px solid #1d1d1f; box-shadow: var(--shadow); }
+  .phones img:nth-child(2) { margin-top: 48px; }
+  .watches { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .watches img { width: 30%; min-width: 120px; max-width: 200px; border-radius: 22%; border: 6px solid #1d1d1f; box-shadow: var(--shadow); }
+  .shot { border-radius: 12px; box-shadow: var(--shadow); }
+
+  /* Gallery */
+  .gallery { position: relative; cursor: grab; overscroll-behavior-x: contain; scrollbar-width: none; display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 8px 16px 24px; margin: 0 -16px; }
+  .gallery::-webkit-scrollbar { display: none; }
+  .gallery.dragging { cursor: grabbing; scroll-snap-type: none; user-select: none; }
+  .gallery.animating { scroll-snap-type: none; }
+  .gallery figure { transform: translateX(var(--rb, 0px)); margin: 0; flex: 0 0 auto; width: min(240px, 62vw); scroll-snap-align: center; }
+  .gallery img { -webkit-user-drag: none; border-radius: 9% / 4.2%; border: 4px solid #1d1d1f; box-shadow: var(--shadow); }
+  .gallery figcaption { text-align: center; color: var(--muted); font-size: 0.875rem; letter-spacing: .01em; margin-top: 12px; }
+
+  /* Pricing */
+  .prices { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 820px; margin: 0 auto; }
+  @media (max-width: 700px) { .prices { grid-template-columns: 1fr; } }
+  .price { background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 30px; text-align: left; }
+  .price.pro { border: 2px solid var(--accent); }
+  .price h3 { margin: 0; font-size: 1.25rem; }
+  .price .amt { font-size: 2.5rem; font-weight: 700; letter-spacing: -0.02em; margin: 6px 0 2px; }
+  .price .note { color: var(--muted); font-size: 0.875rem; letter-spacing: .01em; margin-bottom: 20px; }
+
+  /* Platforms table */
+  .plat { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+  .plat div { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; }
+  .plat b { display: block; font-size: 1.0625rem; }
+  .plat span { color: var(--muted); font-size: 0.875rem; }
+
+  footer { padding: 40px 0 56px; color: var(--muted); font-size: 0.875rem; border-top: 1px solid var(--line); }
+  footer .wrap { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+  footer .links { margin-left: auto; display: flex; gap: 20px; }
+  .theme-toggle { background: none; border: 1px solid var(--line); color: var(--muted); border-radius: 999px; padding: 4px 12px; cursor: pointer; font: inherit; font-size: 0.8125rem; }
+
+  /* Ease light/dark changes rather than snapping brightness */
+  html.theme-anim, html.theme-anim * { transition: background-color .35s ease, color .35s ease, border-color .35s ease !important; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .timer.cue { animation: cue-fade .9s ease; }
+    @keyframes cue-fade { 0%, 40% { background: var(--accent-soft); } 100% { background: var(--bg-alt); } }
+    .btn:active, .rbtn:active, .round:active, .theme-toggle:active { transform: none; }
+  }
+  @media (prefers-reduced-transparency: reduce) {
+    nav { background: var(--bg); backdrop-filter: none; -webkit-backdrop-filter: none; }
+  }
+  @media (prefers-contrast: more) {
+    html:root:root { --muted: color-mix(in srgb, var(--text) 82%, var(--bg)); --line: color-mix(in srgb, var(--text) 45%, var(--bg)); --chrome-edge: var(--line); }
+    nav { background: var(--bg); backdrop-filter: none; -webkit-backdrop-filter: none; box-shadow: 0 1px 0 var(--line); }
+    .feature, .price, .plat div, .remote { border-width: 2px; }
+  }
+
+  /* Language */
+  .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .lang-pick { position: relative; display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); border-radius: 999px; padding: 3px 4px 3px 11px; color: var(--muted); }
+  .lang-pick select { appearance: none; -webkit-appearance: none; background: none; border: 0; color: inherit; font: inherit; font-size: 0.8125rem; padding: 2px 8px 2px 0; cursor: pointer; }
+  .lang-pick:focus-within { outline: 3px solid color-mix(in srgb, var(--accent) 50%, transparent); outline-offset: 2px; }
+  .lang-pick select:focus { outline: none; }
+  .lang-banner { background: var(--accent-soft); color: var(--text); font-size: 0.9375rem; }
+  .lang-banner .wrap { display: flex; align-items: center; gap: 14px; min-height: 48px; flex-wrap: wrap; padding-top: 8px; padding-bottom: 8px; }
+  .lang-banner a { font-weight: 600; }
+  .lang-close { margin-left: auto; background: none; border: 0; color: var(--muted); font-size: 1.375rem; line-height: 1; cursor: pointer; padding: 4px 8px; border-radius: 8px; }
+
+  /* Chinese, Japanese and Korean: no negative tracking, a little more leading, and line breaks
+     between words or phrases rather than mid-word */
+  :lang(ja), :lang(ko), :lang(zh) { letter-spacing: 0 !important; }
+  :lang(ja) h1, :lang(ja) h2, :lang(ko) h1, :lang(ko) h2, :lang(zh) h1, :lang(zh) h2 { line-height: 1.25; }
+  :lang(ja) h1, :lang(ja) h2, :lang(ja) .lede, :lang(ja) .sub { word-break: auto-phrase; }
+  :lang(ko) { word-break: keep-all; }
+  :lang(ja) body, :lang(zh) body, :lang(ko) body { line-height: 1.7; }
+  h1, h2, h3 { text-wrap: balance; overflow-wrap: break-word; hyphens: auto; }
+  .sub, .lede { text-wrap: pretty; }
+</style>
+</head>
+<body>
+<div class="lang-banner" id="langBanner" hidden>
+  <div class="wrap">
+    <span id="langBannerText"></span>
+    <a id="langBannerGo" href="#"></a>
+    <button type="button" id="langBannerClose" class="lang-close" aria-label="">×</button>
+  </div>
+</div>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#"><img src="../assets/icon.png" alt="">Slides Remote</a>
+    <div class="links">
+      <a href="#demo" class="keep">試してみる</a>
+      <a href="#features">機能</a>
+      <a href="#watch">ウォッチ</a>
+      <a href="#mac">コンピュータ</a>
+      <a href="#pricing">価格</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <img class="icon" src="../assets/icon.png" alt="Slides Remoteのアプリアイコン">
+    <h1>スライドを、<br><span class="grad">ポケットから。</span></h1>
+    <p class="lede">Slides Remoteは、iPhone、Apple Watch、Androidスマートフォンをプレゼン用のリモコンに変えます。表示中のスライドのノートを読みながら、時間どおりに話し終えられます。</p>
+    <div class="ctas">
+      <a class="btn btn-primary" href="#demo">リモコンを試す</a>
+      <a class="btn btn-ghost" href="#features">できることを見る</a>
+    </div>
+    <p class="platforms">iPhone · Apple Watch · Android · Wear OS &nbsp;→&nbsp; Mac · Windows</p>
+
+    <div class="hero-shots" aria-hidden="true">
+      <img class="mac" src="../assets/mac-1-dashboard.jpg" alt="">
+      <img class="watch" src="../assets/watch-1-controls.png" alt="">
+      <img class="phone" src="../assets/iphone-1-controls.jpg" alt="">
+    </div>
+  </div>
+</header>
+
+<section id="demo" class="alt">
+  <div class="wrap">
+    <div class="center">
+      <div class="eyebrow">試してみる</div>
+      <h2>迷わず使えるリモコン。</h2>
+      <p class="sub">「スライドショーを開始」を押してから、「次へ」をタップしてみてください。ノートはスライドに合わせて切り替わり、予定より早いか遅れているかはタイマーが教えてくれます。</p>
+    </div>
+
+    <div class="demo">
+      <div class="screen" aria-label="お使いのコンピュータの画面">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <div class="slide off" id="slide" aria-live="polite">
+          <div class="content" id="slideContent"><h3 id="slideTitle"></h3><p id="slideSub"></p></div>
+          <div class="num" id="slideNum"></div>
+        </div>
+      </div>
+
+      <div class="remote" role="group" aria-label="スマートフォンのSlides Remote">
+        <div class="head">
+          <div class="host">MacBook Pro</div>
+          <div class="deck">製品発表会</div>
+          <span class="badge" id="badge"></span>
+        </div>
+        <div class="count"><b id="cur">1</b><span>/<span id="total">6</span></span></div>
+        <div class="card timer" id="timerCard">
+          <div>
+            <div class="t" id="time">5:00</div>
+            <div class="s" id="section"></div>
+          </div>
+          <button class="round" id="timerBtn" aria-label="">
+            <svg width="16" height="16" viewBox="0 0 16 16" id="timerIcon"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>
+          </button>
+        </div>
+        <div class="cue-msg" id="cueMsg" aria-live="polite"></div>
+        <div class="card notes">
+          <div class="label">ノート</div>
+          <div class="body" id="notes"></div>
+        </div>
+        <div class="row">
+          <button class="rbtn" id="showBtn"></button>
+          <button class="rbtn" id="blankBtn"></button>
+        </div>
+        <div class="row">
+          <button class="rbtn big" id="prevBtn" aria-label="前のスライド">
+            <svg width="22" height="22" viewBox="0 0 22 22"><path d="M14 4l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>前へ
+          </button>
+          <button class="rbtn big next" id="nextBtn" aria-label="次のスライド">
+            <svg width="22" height="22" viewBox="0 0 22 22"><path d="M8 4l7 7-7 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>次へ
+          </button>
+        </div>
+      </div>
+    </div>
+    <p class="hint">キーボードでも操作できます。<kbd>←</kbd> <kbd>→</kbd>でスライドを切り替え、<kbd>B</kbd>で黒い画面に。タイマーは実際の20倍の速さで進みます。手首へのタップにも注目してください。</p>
+  </div>
+</section>
+
+<section id="features">
+  <div class="wrap">
+    <div class="eyebrow">機能</div>
+    <h2>人前で話すときに必要なものを、すべて。</h2>
+    <p class="sub">Slides Remoteは、あなたが押すのと同じキーを押します。だから、いつものプレゼンテーションアプリでそのまま使えます。</p>
+
+    <div class="grid">
+      <div class="feature">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4M10 8l3 2-3 2"/></svg></div>
+        <h3>いつものアプリで</h3>
+        <p>Keynote、PowerPoint、ブラウザのGoogle Slides、プレビューのほか、ほとんどのプレゼンテーションアプリで使えます。</p>
+      </div>
+      <div class="feature">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8.5a14 14 0 0 1 20 0M5 12a9.5 9.5 0 0 1 14 0M8.5 15.5a5 5 0 0 1 7 0"/><circle cx="12" cy="19" r="1"/></svg></div>
+        <h3>Wi-FiでもBluetoothでも</h3>
+        <p>接続方法は自動で切り替わります。インターネットもルーターもアカウントも不要なので、どの会場のネットワークでも使えます。</p>
+      </div>
+      <div class="feature">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h12l4 4v12H4z"/><path d="M8 10h8M8 14h8M8 18h5"/></svg></div>
+        <h3>すべてのスライドにノートを</h3>
+        <p>ノートはコンピュータでもスマートフォンでも書けます。発表中はスライドに合わせて、スマートフォンと手首に表示されます。</p>
+      </div>
+      <div class="feature">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg></div>
+        <h3>時間どおりに進めるタイマー</h3>
+        <p>発表の長さ、警告、セクションごとの持ち時間を設定できます。予定より早いか遅れているかが、ひと目でわかります。</p>
+      </div>
+      <div class="feature">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
+        <h3>プライバシーを考えた設計</h3>
+        <p>ペアリングは一度だけ。両方の画面に表示される6桁のコードを使います。すべてが暗号化され、データがお使いのデバイスの外に出ることはありません。</p>
+      </div>
+      <div class="feature">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="1.5"/><path d="M5 8l7 1.5L19 8M12 9.5V14l-3 6M12 14l3 6"/></svg></div>
+        <h3>アクセシビリティ</h3>
+        <p>VoiceOver、音声コントロール、最大サイズまでの「さらに大きな文字」（Dynamic Type）、「視差効果を減らす」、「カラー以外で区別」に対応しています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap split">
+    <div>
+      <div class="eyebrow">スマートフォンで</div>
+      <h2>ノートも、時間も、ひと目で。</h2>
+      <p class="sub">スライド番号、現在のセクションの残り時間、話そうと思っていたこと。そのすぐ下に、大きな「次へ」と「前へ」のボタン。</p>
+      <ul class="ticks">
+        <li>「次へ」「前へ」に加えて、<strong>「スライドショーを開始」「スライドショーを終了」「黒い画面」「スライドへ移動」</strong>も。</li>
+        <li><strong>外出先でもノートを編集。</strong>同じノートがコンピュータでも変更されていた場合は、どちらを残すかを確認します。</li>
+        <li><strong>複数のプレゼンテーション</strong>に対応。それぞれに専用のノートとタイマーのプランを用意できます。</li>
+        <li>コンピュータがスリープしても、通信範囲の外に出ても、<strong>自動的に再接続</strong>します。発表中は画面がオンのままです。</li>
+      </ul>
+    </div>
+    <div class="phones">
+      <img src="../assets/iphone-1-controls.jpg" alt="スライド4/18、予定より3分早く進行中のタイマー、そのスライドのノートが表示されたiPhoneのリモコン">
+      <img src="../assets/iphone-3-timer-plan.jpg" alt="発表の長さ、警告、セクションごとの持ち時間を設定したタイマーのプラン">
+    </div>
+  </div>
+</section>
+
+<section id="watch">
+  <div class="wrap split rev">
+    <div>
+      <div class="eyebrow">手首で</div>
+      <h2>手ぶらで、プレゼン。</h2>
+      <p class="sub">タップ、Digital Crown、ダブルタップでスライドを切り替え。タイマーの警告ごとに、そしてセクションが時間を超過したときに、ウォッチが手首をタップして知らせます。</p>
+      <ul class="ticks">
+        <li><strong>上にスワイプしてノートを表示。</strong>その次のページでは、スライドショーの開始と終了、黒い画面、タイマーを操作できます。</li>
+        <li><strong>「前面に表示」</strong>を使えば、手首を下げていても、発表のあいだずっとリモコンが画面に表示されたままです。</li>
+        <li>Bluetoothで<strong>直接接続</strong>。必要なときはスマートフォン経由で接続します。</li>
+        <li><strong>Wear OSにも対応。</strong>リューズや回転ベゼルで操作できます。</li>
+      </ul>
+    </div>
+    <div class="watches">
+      <img src="../assets/watch-1-controls.png" alt="スライド4/18、「再生中」バッジ、タイマーが表示されたApple Watchのリモコン">
+      <img src="../assets/watch-2-notes.png" alt="現在のスライドのノートを表示しているApple Watch">
+      <img src="../assets/watch-3-show-page.png" alt="「スライドショーを開始」「黒い画面」とタイマーの操作が並ぶ、Apple Watchのスライドショー操作ページ">
+    </div>
+  </div>
+</section>
+
+<section id="mac" class="alt">
+  <div class="wrap">
+    <div class="center">
+      <div class="eyebrow">コンピュータで</div>
+      <h2>MacとWindowsのための、無料のコンパニオンアプリ。</h2>
+      <p class="sub">メニューバーや通知領域に常駐し、リモコンの接続中はコンピュータをスリープさせません。各操作で押すキーも、アプリごとに選べます。</p>
+    </div>
+    <img class="shot" src="../assets/mac-1-dashboard.jpg" alt="スライドの操作、タイマー、プレゼンテーションの選択が表示された、Slides Remote for Macのダッシュボード">
+    <div class="grid" style="margin-top:20px">
+      <img class="shot" src="../assets/mac-2-presentations.jpg" alt="Macでプレゼンテーションとスライドごとのノートを編集しているところ">
+      <img class="shot" src="../assets/mac-3-settings-keys.jpg" alt="設定：プレゼンテーションアプリごとに、各操作で押すキー">
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">ツアー</div>
+    <h2>ひととおり、見てみましょう。</h2>
+    <div class="gallery">
+      <figure><img src="../assets/iphone-1-controls.jpg" alt="ノートとタイマーを表示したリモコンの操作画面" loading="lazy"><figcaption>ポケットからスライドを切り替え</figcaption></figure>
+      <figure><img src="../assets/iphone-2-notes-editor.jpg" alt="スライドのノートを編集しているところ" loading="lazy"><figcaption>すべてのスライドにノートを</figcaption></figure>
+      <figure><img src="../assets/iphone-3-timer-plan.jpg" alt="タイマーのプラン" loading="lazy"><figcaption>時間どおりに進めるタイマー</figcaption></figure>
+      <figure><img src="../assets/iphone-4-presentations.jpg" alt="プレゼンテーションの一覧" loading="lazy"><figcaption>すべての発表を一か所に</figcaption></figure>
+      <figure><img src="../assets/iphone-5-mac-list.jpg" alt="近くのコンピュータを探しているところ" loading="lazy"><figcaption>数秒でコンピュータとペアリング</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" class="alt">
+  <div class="wrap">
+    <div class="center">
+      <div class="eyebrow">価格</div>
+      <h2>リモコンとしてなら、無料。</h2>
+      <p class="sub">サブスクリプションも、広告も、アカウントも不要。ノートとタイマーが必要なら、一度ロックを解除するだけです。</p>
+    </div>
+    <div class="prices">
+      <div class="price">
+        <h3>リモコン</h3>
+        <div class="amt">無料</div>
+        <div class="note">期間の制限なし</div>
+        <ul class="ticks">
+          <li>次へ、前へ、スライドへ移動</li>
+          <li>スライドショーの開始と終了、黒い画面</li>
+          <li>スライド数と接続状況</li>
+          <li>スマートフォンとウォッチのアプリ</li>
+        </ul>
+      </div>
+      <div class="price pro">
+        <h3>ノートとタイマー</h3>
+        <div class="amt">買い切り</div>
+        <div class="note">一度の購入、サブスクリプションなし · 7日間の無料トライアル</div>
+        <ul class="ticks">
+          <li>すべてのスライドのノートを、スマートフォンとウォッチで</li>
+          <li>複数のプレゼンテーション</li>
+          <li>警告とセクションごとの持ち時間を設定できる発表タイマー</li>
+          <li>合図のたびに手首をタップ</li>
+          <li>ロックを解除したデバイスは、接続しているデバイスとロック解除を共有</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">動作環境</div>
+    <h2>お手持ちのデバイスで使えます。</h2>
+    <p class="sub">コンピュータに無料アプリを、スマートフォンにリモコンをインストールします。同じWi-Fiネットワーク上か、Bluetoothの通信範囲内で使えます。</p>
+    <div class="plat">
+      <div><b>Mac</b><span>macOS 26以降</span></div>
+      <div><b>Windows</b><span>Windows 10（バージョン 2004）以降、Windows 11</span></div>
+      <div><b>iPhoneとApple Watch</b><span>iOS 26およびwatchOS 26以降</span></div>
+      <div><b>AndroidとWear OS</b><span>Android 8.0以降、Wear OS 3以降</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 George Turner</span>
+    <button class="theme-toggle" id="themeToggle" type="button"></button>
+    <label class="lang-pick">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+      <span class="visually-hidden">言語</span>
+      <select id="langSelect"><option value="en" lang="en">English (US)</option><option value="en-GB" lang="en-GB">English (UK)</option><option value="de" lang="de">Deutsch</option><option value="es" lang="es">Español</option><option value="fr" lang="fr">Français</option><option value="it" lang="it">Italiano</option><option value="ja" selected lang="ja">日本語</option><option value="ko" lang="ko">한국어</option><option value="nl" lang="nl">Nederlands</option><option value="pl" lang="pl">Polski</option><option value="pt-BR" lang="pt-BR">Português (Brasil)</option><option value="ru" lang="ru">Русский</option><option value="zh-Hans" lang="zh-Hans">简体中文</option><option value="zh-Hant" lang="zh-Hant">繁體中文</option></select>
+    </label>
+    <div class="links">
+      <a href="../support/">ヘルプ</a>
+      <a href="../privacy/">プライバシーポリシー</a>
+      <a href="../terms/">利用規約</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  if (location.protocol === "file:") {
+    document.querySelectorAll("a[href]").forEach(a => {
+      const href = a.getAttribute("href");
+      if (/^([a-z]+:|#|\/\/)/i.test(href)) return;
+      const [path, hash = ""] = href.split("#");
+      if (path.endsWith("/")) a.setAttribute("href", path + "index.html" + (hash && "#" + hash));
+    });
+  }
+  const $ = id => document.getElementById(id);
+  const T = {"not_presenting": "停止中", "live": "▶ 再生中", "blanked": "黒い画面を表示中", "start_show": "スライドショーを開始", "end_show": "スライドショーを終了", "blank": "黒い画面", "unblank": "黒い画面を解除", "start_timer": "タイマーを開始", "pause_timer": "タイマーを一時停止", "time_left": "残り{time}", "time_over": "{time}超過", "ahead": "{time}早い", "behind": "{time}遅れ", "tap": "タップ：{message}", "cue_1min": "残り1分", "cue_end": "時間です", "cue_over": "{section}が時間を超過しています", "file_name": "製品発表会.key", "press_start": "リモコンで「スライドショーを開始」を押してください", "theme": "テーマ：{mode}", "theme_auto": "自動", "theme_light": "ライト", "theme_dark": "ダーク", "section_intro": "イントロ", "section_problem": "課題", "section_solution": "解決策", "section_wrap": "まとめ", "slide1_title": "製品発表会", "slide1_sub": "Huddleのご紹介", "slide1_notes": "来場のお礼を伝える。自己紹介はひと言で。", "slide2_title": "こんにちは、Samです", "slide2_sub": "プロダクト責任者", "slide2_notes": "短めに。ベータ版の数字はここでは出さず、後で。", "slide3_title": "課題", "slide3_sub": "会議が時間どおりに始まらない", "slide3_notes": "「今週、会議に遅れた人は？」と聞く。手が挙がるのを待つ。", "slide4_title": "10分", "slide4_sub": "会議のたびに、準備で失われる時間", "slide4_notes": "ほとんどのチームが、会議のたびに準備で10分を失っている。\n数字のあとで間を置く。", "slide5_title": "Huddle登場", "slide5_sub": "ワンタップで開始", "slide5_notes": "次はライブデモ。セカンドスクリーンがミラーリングされているか確認。", "slide6_title": "ありがとうございました", "slide6_sub": "ご質問は？", "slide6_notes": "QRコードを示す。質疑応答に5分残す。"};
+  const LANGS = {"en": {"href": "../", "banner": "This page is also available in English.", "go": "View in English", "close": "Close"}, "en-GB": {"href": "../en-gb/", "banner": "This page is also available in British English.", "go": "View in British English", "close": "Close"}, "de": {"href": "../de/", "banner": "Diese Seite gibt es auch auf Deutsch.", "go": "Auf Deutsch ansehen", "close": "Schließen"}, "es": {"href": "../es/", "banner": "Esta página también está en español.", "go": "Ver en español", "close": "Cerrar"}, "fr": {"href": "../fr/", "banner": "Cette page existe aussi en français.", "go": "Voir en français", "close": "Fermer"}, "it": {"href": "../it/", "banner": "Questa pagina è disponibile anche in italiano.", "go": "Visualizza in italiano", "close": "Chiudi"}, "ja": {"href": "../ja/", "banner": "このページは日本語でもご覧いただけます。", "go": "日本語で見る", "close": "閉じる"}, "ko": {"href": "../ko/", "banner": "이 페이지는 한국어로도 볼 수 있습니다.", "go": "한국어로 보기", "close": "닫기"}, "nl": {"href": "../nl/", "banner": "Deze pagina is ook beschikbaar in het Nederlands.", "go": "Bekijk in het Nederlands", "close": "Sluiten"}, "pl": {"href": "../pl/", "banner": "Ta strona jest dostępna także po polsku.", "go": "Otwórz po polsku", "close": "Zamknij"}, "pt-BR": {"href": "../pt-br/", "banner": "Esta página também está disponível em português.", "go": "Ver em português", "close": "Fechar"}, "ru": {"href": "../ru/", "banner": "Эта страница есть и на русском.", "go": "Открыть на русском", "close": "Закрыть"}, "zh-Hans": {"href": "../zh-hans/", "banner": "此页面也提供简体中文版。", "go": "查看简体中文版", "close": "关闭"}, "zh-Hant": {"href": "../zh-hant/", "banner": "此頁面也提供繁體中文版。", "go": "查看繁體中文版", "close": "關閉"}};
+  const PAGE_LANG = "ja";
+  const t = (key, vars = {}) => T[key].replace(/\{(\w+)\}/g, (_, k) => vars[k]);
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
+
+  // A spring described the way Apple describes them: damping ratio (1 = no bounce) and
+  // response (seconds). It always continues from its current value and velocity, so it
+  // can be retargeted mid-flight without a jump.
+  class Spring {
+    constructor(value, onUpdate, { damping = 1, response = 0.35 } = {}) {
+      this.x = value; this.v = 0; this.target = value; this.onUpdate = onUpdate;
+      this.damping = damping; this.response = response; this.raf = 0;
+    }
+    to(target, { velocity, damping, response, onDone } = {}) {
+      this.target = target;
+      if (velocity !== undefined) this.v = velocity;
+      if (damping !== undefined) this.damping = damping;
+      if (response !== undefined) this.response = response;
+      this.onDone = onDone;
+      if (reduceMotion.matches) { this.jump(target); onDone?.(); return; }
+      if (!this.raf) { this.last = performance.now(); this.raf = requestAnimationFrame(t => this.step(t)); }
+    }
+    jump(x) { this.stop(); this.x = this.target = x; this.v = 0; this.onUpdate(x); }
+    stop() { cancelAnimationFrame(this.raf); this.raf = 0; }
+    step(now) {
+      const k = (2 * Math.PI / this.response) ** 2, c = 4 * Math.PI * this.damping / this.response;
+      let dt = Math.min(0.064, (now - this.last) / 1000); this.last = now;
+      while (dt > 0) {
+        const h = Math.min(dt, 1 / 240); dt -= h;
+        this.v += (-k * (this.x - this.target) - c * this.v) * h;
+        this.x += this.v * h;
+      }
+      if (Math.abs(this.x - this.target) < 0.3 && Math.abs(this.v) < 3) {
+        this.x = this.target; this.v = 0; this.raf = 0; this.onUpdate(this.x); this.onDone?.(); return;
+      }
+      this.onUpdate(this.x);
+      this.raf = requestAnimationFrame(t => this.step(t));
+    }
+  }
+
+  // ---- Demo ----
+  const sections = { intro: t("section_intro"), problem: t("section_problem"), solution: t("section_solution"), wrap: t("section_wrap") };
+  const slideSections = ["intro", "intro", "problem", "problem", "solution", "wrap"];
+  const backgrounds = [
+    "linear-gradient(135deg,#584feb,#a35cff)", "linear-gradient(135deg,#4a3fd6,#584feb)",
+    "linear-gradient(135deg,#e0141e,#ff7a59)", "linear-gradient(135deg,#d9480f,#f59f00)",
+    "linear-gradient(135deg,#0ca678,#3bc9db)", "linear-gradient(135deg,#1d1d1f,#584feb)",
+  ];
+  const slides = slideSections.map((section, i) => ({
+    title: t(`slide${i + 1}_title`), sub: t(`slide${i + 1}_sub`), notes: t(`slide${i + 1}_notes`),
+    bg: backgrounds[i], section,
+  }));
+  // Section budgets in seconds, over a 5:00 talk.
+  const budgets = { intro: 60, problem: 90, solution: 90, wrap: 60 };
+  const TALK = 300, SPEED = 20;
+
+  let cur = 0, showing = false, blank = false, running = false, elapsed = 0, sectionStart = 0, lastTick = 0, timerId = null;
+  let cued = new Set();
+
+
+  const fmt = s => { s = Math.max(0, Math.round(s)); return Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0"); };
+
+  function plannedEnd(sec) {
+    let t = 0;
+    for (const name of Object.keys(budgets)) { t += budgets[name]; if (name === sec) return t; }
+    return t;
+  }
+
+  // Slide content and the slide number move on springs. Next brings the new slide in from
+  // the right and Previous from the left, the same path the deck travels.
+  const content = $("slideContent"), count = $("cur");
+  const slideSpring = new Spring(0, x => {
+    content.style.transform = `translateX(${x}px)`;
+    content.style.opacity = Math.max(0, 1 - Math.abs(x) / 160);
+  });
+  const countSpring = new Spring(0, y => {
+    count.style.transform = `translateY(${y}px)`;
+    count.style.opacity = Math.max(0, 1 - Math.abs(y) / 40);
+  });
+  function nudge(dir) {
+    if (reduceMotion.matches) {
+      // A gentle cross-fade instead of travel.
+      for (const el of [content, count]) el.animate([{ opacity: 0.25 }, { opacity: 1 }], { duration: 180, easing: "ease-out" });
+      return;
+    }
+    // Start from wherever the spring is right now, so rapid taps stack smoothly.
+    slideSpring.x = Math.max(-120, Math.min(120, slideSpring.x + dir * 70));
+    slideSpring.to(0);
+    countSpring.x = Math.max(-24, Math.min(24, countSpring.x + dir * 14));
+    countSpring.to(0);
+  }
+
+  function render() {
+    const s = slides[cur];
+    const el = $("slide");
+    el.style.background = s.bg;
+    el.classList.toggle("off", !showing);
+    el.classList.toggle("blank", showing && blank);
+    $("slideTitle").textContent = showing ? s.title : t("file_name");
+    $("slideSub").textContent = showing ? s.sub : t("press_start");
+    $("slideNum").textContent = showing ? (cur + 1) + " / " + slides.length : "";
+    count.textContent = cur + 1;
+    $("notes").textContent = s.notes;
+    $("showBtn").textContent = showing ? t("end_show") : t("start_show");
+    $("blankBtn").textContent = blank ? t("unblank") : t("blank");
+    const badge = $("badge");
+    badge.textContent = showing ? (blank ? t("blanked") : t("live")) : t("not_presenting");
+    badge.classList.toggle("live", showing && !blank);
+    renderTimer();
+  }
+
+  function renderTimer() {
+    const s = slides[cur];
+    $("time").textContent = fmt(TALK - elapsed);
+    const secLeft = plannedEnd(s.section) - elapsed;
+    // Ahead/behind: when this section was planned to start versus when it actually started.
+    const diff = Math.round(plannedEnd(s.section) - budgets[s.section] - sectionStart);
+    let status = "";
+    if (elapsed > 0) {
+      status = diff >= 0 ? `<span class="ahead">${t("ahead", { time: fmt(diff) })}</span>` : `<span class="behind">${t("behind", { time: fmt(-diff) })}</span>`;
+    }
+    $("section").innerHTML = `${sections[s.section]} · ${secLeft >= 0 ? t("time_left", { time: fmt(secLeft) }) : t("time_over", { time: fmt(-secLeft) })}${status ? "<br>" + status : ""}`;
+    $("timerBtn").setAttribute("aria-label", running ? t("pause_timer") : t("start_timer"));
+    $("timerIcon").innerHTML = running
+      ? '<rect x="3.5" y="2.5" width="3" height="11" rx="1" fill="currentColor"/><rect x="9.5" y="2.5" width="3" height="11" rx="1" fill="currentColor"/>'
+      : '<path d="M4 2.5v11l9-5.5z" fill="currentColor"/>';
+  }
+
+  // The watch taps your wrist at each warning and when a section runs over. The demo shows
+  // the same moments: a pulse on the timer, a line of text and, on phones that allow it, a buzz.
+  let cueHide = 0;
+  function cue(key, message) {
+    if (cued.has(key)) return;
+    cued.add(key);
+    const card = $("timerCard");
+    card.classList.remove("cue"); void card.offsetWidth; card.classList.add("cue");
+    const msg = $("cueMsg");
+    msg.textContent = "⌚ " + t("tap", { message });
+    msg.classList.add("on");
+    clearTimeout(cueHide); cueHide = setTimeout(() => msg.classList.remove("on"), 2600);
+    try { navigator.vibrate?.([25, 70, 25]); } catch (e) {}
+  }
+  function checkCues() {
+    const sec = slides[cur].section;
+    if (elapsed >= TALK) cue("end", t("cue_end"));
+    else if (elapsed >= TALK - 60) cue("1min", t("cue_1min"));
+    if (elapsed > plannedEnd(sec) && elapsed < TALK) cue("over:" + sec, t("cue_over", { section: sections[sec] }));
+  }
+
+  function tick(now) {
+    if (!running) return;
+    elapsed = Math.min(TALK, elapsed + (now - lastTick) / 1000 * SPEED);
+    lastTick = now;
+    renderTimer();
+    checkCues();
+    if (elapsed >= TALK) { running = false; renderTimer(); return; }
+    timerId = requestAnimationFrame(tick);
+  }
+  function setRunning(on) {
+    running = on;
+    if (on) { lastTick = performance.now(); timerId = requestAnimationFrame(tick); }
+    else cancelAnimationFrame(timerId);
+    renderTimer();
+  }
+
+  function go(i) {
+    const n = Math.max(0, Math.min(slides.length - 1, i));
+    if (n === cur) {
+      // At either end, a small give rather than a dead stop.
+      if (!reduceMotion.matches) { slideSpring.v += (i > cur ? -1 : 1) * 260; slideSpring.to(0); }
+      return;
+    }
+    const dir = n > cur ? 1 : -1;
+    if (slides[n].section !== slides[cur].section) sectionStart = elapsed;
+    cur = n; blank = false;
+    render();
+    nudge(dir);
+  }
+
+  $("nextBtn").onclick = () => go(cur + 1);
+  $("prevBtn").onclick = () => go(cur - 1);
+  $("blankBtn").onclick = () => { if (!showing) return; blank = !blank; render(); };
+  $("showBtn").onclick = () => {
+    showing = !showing; blank = false;
+    if (showing) { cur = 0; elapsed = 0; sectionStart = 0; cued = new Set(); setRunning(true); }
+    else setRunning(false);
+    render();
+    if (showing) nudge(1);
+  };
+  $("timerBtn").onclick = () => setRunning(!running && elapsed < TALK);
+
+  document.addEventListener("keydown", e => {
+    if (e.target.closest("input, textarea") || e.metaKey || e.ctrlKey || e.altKey) return;
+    const demo = $("demo").getBoundingClientRect();
+    if (demo.bottom < 0 || demo.top > innerHeight) return;
+    if (e.key === "ArrowRight") { go(cur + 1); e.preventDefault(); }
+    else if (e.key === "ArrowLeft") { go(cur - 1); e.preventDefault(); }
+    else if (e.key.toLowerCase() === "b") $("blankBtn").click();
+  });
+
+  render();
+
+  // ---- Nav: edge only when content scrolls under it, and the current section is marked ----
+  const nav = document.querySelector("nav");
+  const onScroll = () => nav.classList.toggle("scrolled", scrollY > 4);
+  addEventListener("scroll", onScroll, { passive: true }); onScroll();
+
+  const navLinks = [...nav.querySelectorAll(".links a")];
+  const observed = navLinks.map(a => document.querySelector(a.getAttribute("href"))).filter(Boolean);
+  const visible = new Set();
+  const io = new IntersectionObserver(entries => {
+    for (const e of entries) e.isIntersecting ? visible.add(e.target.id) : visible.delete(e.target.id);
+    const id = observed.map(el => el.id).find(id => visible.has(id));
+    navLinks.forEach(a => a.getAttribute("href") === "#" + id ? a.setAttribute("aria-current", "true") : a.removeAttribute("aria-current"));
+  }, { rootMargin: "-45% 0px -50% 0px" });
+  observed.forEach(el => io.observe(el));
+
+  // ---- Gallery: touch scrolls natively; a mouse can grab it, throw it and feel its ends ----
+  const gallery = document.querySelector(".gallery");
+  const figures = [...gallery.querySelectorAll("figure")];
+  const maxScroll = () => gallery.scrollWidth - gallery.clientWidth;
+  const rubberband = (over, dim, c = 0.55) => (over * dim * c) / (dim + c * Math.abs(over));
+  // Apple's projection: where a flick at this velocity would come to rest.
+  const project = (v, d = 0.998) => (v / 1000) * d / (1 - d);
+  const snapPoints = () => figures.map(f => Math.max(0, Math.min(maxScroll(), f.offsetLeft + f.offsetWidth / 2 - gallery.clientWidth / 2)));
+
+  const scrollSpring = new Spring(0, x => { gallery.scrollLeft = x; });
+  const bandSpring = new Spring(0, x => gallery.style.setProperty("--rb", x + "px"));
+  let drag = null, moved = false;
+
+  gallery.addEventListener("pointerdown", e => {
+    if (e.pointerType !== "mouse" || e.button !== 0) return;
+    // Grabbing mid-flight stops it where it is, rather than letting it finish first.
+    scrollSpring.stop(); bandSpring.stop();
+    gallery.classList.remove("animating");
+    drag = { x0: e.clientX, s0: gallery.scrollLeft, hist: [{ x: e.clientX, t: e.timeStamp }] };
+    moved = false;
+    gallery.setPointerCapture(e.pointerId);
+  });
+  gallery.addEventListener("pointermove", e => {
+    if (!drag) return;
+    const dx = e.clientX - drag.x0;
+    if (!moved && Math.abs(dx) < 6) return;
+    if (!moved) { moved = true; gallery.classList.add("dragging"); }
+    drag.hist.push({ x: e.clientX, t: e.timeStamp });
+    if (drag.hist.length > 6) drag.hist.shift();
+    const want = drag.s0 - dx, max = maxScroll();
+    const clamped = Math.max(0, Math.min(max, want));
+    gallery.scrollLeft = clamped;
+    const over = want - clamped;
+    bandSpring.x = -rubberband(over, gallery.clientWidth);
+    gallery.style.setProperty("--rb", bandSpring.x + "px");
+  });
+  const release = e => {
+    if (!drag) return;
+    const d = drag; drag = null;
+    gallery.classList.remove("dragging");
+    if (!moved) return;
+    const a = d.hist[0], b = d.hist[d.hist.length - 1];
+    const dt = Math.max(1, b.t - a.t);
+    const v = -((b.x - a.x) / dt) * 1000; // scroll velocity in px/s
+    if (Math.abs(bandSpring.x) > 0.5) { bandSpring.to(0, { damping: 1, response: 0.4 }); return; }
+    const projected = gallery.scrollLeft + project(v);
+    const target = snapPoints().reduce((best, p) => Math.abs(p - projected) < Math.abs(best - projected) ? p : best);
+    gallery.classList.add("animating");
+    scrollSpring.x = gallery.scrollLeft;
+    // A flick carried momentum, so a hint of bounce; a slow drop settles without any.
+    scrollSpring.to(target, { velocity: v, damping: Math.abs(v) > 300 ? 0.85 : 1, response: 0.45,
+      onDone: () => gallery.classList.remove("animating") });
+  };
+  gallery.addEventListener("pointerup", release);
+  gallery.addEventListener("pointercancel", release);
+  // A drag shouldn't also count as a click on the screenshot under it.
+  gallery.addEventListener("click", e => { if (moved) { e.preventDefault(); e.stopPropagation(); } }, true);
+
+  // ---- Theme toggle: Auto → Light → Dark, easing between them ----
+  const modes = ["auto", "light", "dark"];
+  let mode = "auto";
+  try { mode = localStorage.getItem("theme") || "auto"; } catch (e) {}
+  const root = document.documentElement;
+  const applyTheme = () => {
+    if (mode === "auto") root.removeAttribute("data-theme");
+    else root.setAttribute("data-theme", mode);
+    $("themeToggle").textContent = t("theme", { mode: t("theme_" + mode) });
+  };
+  $("themeToggle").onclick = () => {
+    mode = modes[(modes.indexOf(mode) + 1) % modes.length];
+    try { localStorage.setItem("theme", mode); } catch (e) {}
+    root.classList.add("theme-anim");
+    applyTheme();
+    setTimeout(() => root.classList.remove("theme-anim"), 400);
+  };
+  applyTheme();
+
+  // ---- Language: a picker, and a quiet suggestion when the browser prefers another language ----
+  const remember = code => { try { localStorage.setItem("lang", code); } catch (e) {} };
+  // A server answers a folder address with its index.html; a page opened from disk doesn't.
+  const pageHref = href => location.protocol === "file:" ? href.replace(/\/?$/, "/").replace(/^\.\/$/, "") + "index.html" : href;
+  $("langSelect").onchange = e => {
+    const code = e.target.value;
+    remember(code);
+    location.href = pageHref(LANGS[code].href) + location.hash;
+  };
+  let chosen = null;
+  try { chosen = localStorage.getItem("lang"); } catch (e) {}
+  if (!chosen) {
+    // Match the browser's languages to ours: exact first (pt-BR, zh-Hant), then by script or
+    // region for Chinese, then by language alone.
+    const codes = Object.keys(LANGS);
+    const match = tag => {
+      const lower = tag.toLowerCase();
+      const exact = codes.find(c => c.toLowerCase() === lower);
+      if (exact) return exact;
+      if (lower.startsWith("zh")) return /hant|tw|hk|mo/.test(lower) ? "zh-Hant" : "zh-Hans";
+      if (lower === "en" || lower.startsWith("en-us")) return "en";
+      if (lower.startsWith("en-")) return "en-GB";
+      const base = lower.split("-")[0];
+      return codes.find(c => c.toLowerCase().split("-")[0] === base) || null;
+    };
+    const want = (navigator.languages || [navigator.language]).map(match).find(Boolean);
+    if (want && want !== PAGE_LANG && !(want.startsWith("en") && PAGE_LANG.startsWith("en"))) {
+      const L = LANGS[want];
+      const banner = $("langBanner");
+      banner.lang = want;
+      $("langBannerText").textContent = L.banner;
+      const go = $("langBannerGo");
+      go.textContent = L.go; go.href = pageHref(L.href); go.onclick = () => remember(want);
+      const close = $("langBannerClose");
+      close.setAttribute("aria-label", L.close);
+      close.onclick = () => { remember(PAGE_LANG); banner.hidden = true; };
+      banner.hidden = false;
+    }
+  }
+})();
+</script>
+</body>
+</html>

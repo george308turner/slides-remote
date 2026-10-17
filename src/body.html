@@ -1,0 +1,272 @@
+<div class="lang-banner" id="langBanner" hidden>
+  <div class="wrap">
+    <span id="langBannerText"></span>
+    <a id="langBannerGo" href="#"></a>
+    <button type="button" id="langBannerClose" class="lang-close" aria-label="">×</button>
+  </div>
+</div>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#"><img src="{{A}}icon.png" alt="">Slides Remote</a>
+    <div class="links">
+      <a href="#demo" class="keep">{{nav.try}}</a>
+      <a href="#features">{{nav.features}}</a>
+      <a href="#watch">{{nav.watch}}</a>
+      <a href="#mac">{{nav.computer}}</a>
+      <a href="#pricing">{{nav.pricing}}</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <img class="icon" src="{{A}}icon.png" alt="{{meta.icon_alt}}">
+    <h1>{{hero.title_1}}<br><span class="grad">{{hero.title_2}}</span></h1>
+    <p class="lede">{{hero.lede}}</p>
+    <div class="ctas">
+      <a class="btn btn-primary" href="#demo">{{hero.cta_try}}</a>
+      <a class="btn btn-ghost" href="#features">{{hero.cta_features}}</a>
+    </div>
+    <p class="platforms">iPhone · Apple Watch · Android · Wear OS &nbsp;→&nbsp; Mac · Windows</p>
+
+    <div class="hero-shots" aria-hidden="true">
+      <img class="mac" src="{{A}}mac-1-dashboard.jpg" alt="">
+      <img class="watch" src="{{A}}watch-1-controls.png" alt="">
+      <img class="phone" src="{{A}}iphone-1-controls.jpg" alt="">
+    </div>
+  </div>
+</header>
+
+<section id="demo" class="alt">
+  <div class="wrap">
+    <div class="center">
+      <div class="eyebrow">{{demo.eyebrow}}</div>
+      <h2>{{demo.title}}</h2>
+      <p class="sub">{{demo.sub}}</p>
+    </div>
+
+    <div class="demo">
+      <div class="screen" aria-label="{{demo.screen_label}}">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <div class="slide off" id="slide" aria-live="polite">
+          <div class="content" id="slideContent"><h3 id="slideTitle"></h3><p id="slideSub"></p></div>
+          <div class="num" id="slideNum"></div>
+        </div>
+      </div>
+
+      <div class="remote" role="group" aria-label="{{demo.remote_label}}">
+        <div class="head">
+          <div class="host">MacBook Pro</div>
+          <div class="deck">{{demo.deck_name}}</div>
+          <span class="badge" id="badge"></span>
+        </div>
+        <div class="count"><b id="cur">1</b><span>{{demo.count_of}}</span></div>
+        <div class="card timer" id="timerCard">
+          <div>
+            <div class="t" id="time">5:00</div>
+            <div class="s" id="section"></div>
+          </div>
+          <button class="round" id="timerBtn" aria-label="">
+            <svg width="16" height="16" viewBox="0 0 16 16" id="timerIcon"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>
+          </button>
+        </div>
+        <div class="cue-msg" id="cueMsg" aria-live="polite"></div>
+        <div class="card notes">
+          <div class="label">{{demo.notes}}</div>
+          <div class="body" id="notes"></div>
+        </div>
+        <div class="row">
+          <button class="rbtn" id="showBtn"></button>
+          <button class="rbtn" id="blankBtn"></button>
+        </div>
+        <div class="row">
+          <button class="rbtn big" id="prevBtn" aria-label="{{demo.previous_label}}">
+            <svg width="22" height="22" viewBox="0 0 22 22"><path d="M14 4l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>{{demo.previous}}
+          </button>
+          <button class="rbtn big next" id="nextBtn" aria-label="{{demo.next_label}}">
+            <svg width="22" height="22" viewBox="0 0 22 22"><path d="M8 4l7 7-7 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>{{demo.next}}
+          </button>
+        </div>
+      </div>
+    </div>
+    <p class="hint">{{demo.hint}}</p>
+  </div>
+</section>
+
+<section id="features">
+  <div class="wrap">
+    <div class="eyebrow">{{features.eyebrow}}</div>
+    <h2>{{features.title}}</h2>
+    <p class="sub">{{features.sub}}</p>
+
+    <div class="grid">
+      <div class="feature">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4M10 8l3 2-3 2"/></svg></div>
+        <h3>{{features.apps_title}}</h3>
+        <p>{{features.apps_body}}</p>
+      </div>
+      <div class="feature">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8.5a14 14 0 0 1 20 0M5 12a9.5 9.5 0 0 1 14 0M8.5 15.5a5 5 0 0 1 7 0"/><circle cx="12" cy="19" r="1"/></svg></div>
+        <h3>{{features.link_title}}</h3>
+        <p>{{features.link_body}}</p>
+      </div>
+      <div class="feature">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h12l4 4v12H4z"/><path d="M8 10h8M8 14h8M8 18h5"/></svg></div>
+        <h3>{{features.notes_title}}</h3>
+        <p>{{features.notes_body}}</p>
+      </div>
+      <div class="feature">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg></div>
+        <h3>{{features.timer_title}}</h3>
+        <p>{{features.timer_body}}</p>
+      </div>
+      <div class="feature">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
+        <h3>{{features.private_title}}</h3>
+        <p>{{features.private_body}}</p>
+      </div>
+      <div class="feature">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="1.5"/><path d="M5 8l7 1.5L19 8M12 9.5V14l-3 6M12 14l3 6"/></svg></div>
+        <h3>{{features.a11y_title}}</h3>
+        <p>{{features.a11y_body}}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap split">
+    <div>
+      <div class="eyebrow">{{phone.eyebrow}}</div>
+      <h2>{{phone.title}}</h2>
+      <p class="sub">{{phone.sub}}</p>
+      <ul class="ticks">
+        <li>{{phone.tick1}}</li>
+        <li>{{phone.tick2}}</li>
+        <li>{{phone.tick3}}</li>
+        <li>{{phone.tick4}}</li>
+      </ul>
+    </div>
+    <div class="phones">
+      <img src="{{A}}iphone-1-controls.jpg" alt="{{phone.alt1}}">
+      <img src="{{A}}iphone-3-timer-plan.jpg" alt="{{phone.alt2}}">
+    </div>
+  </div>
+</section>
+
+<section id="watch">
+  <div class="wrap split rev">
+    <div>
+      <div class="eyebrow">{{watch.eyebrow}}</div>
+      <h2>{{watch.title}}</h2>
+      <p class="sub">{{watch.sub}}</p>
+      <ul class="ticks">
+        <li>{{watch.tick1}}</li>
+        <li>{{watch.tick2}}</li>
+        <li>{{watch.tick3}}</li>
+        <li>{{watch.tick4}}</li>
+      </ul>
+    </div>
+    <div class="watches">
+      <img src="{{A}}watch-1-controls.png" alt="{{watch.alt1}}">
+      <img src="{{A}}watch-2-notes.png" alt="{{watch.alt2}}">
+      <img src="{{A}}watch-3-show-page.png" alt="{{watch.alt3}}">
+    </div>
+  </div>
+</section>
+
+<section id="mac" class="alt">
+  <div class="wrap">
+    <div class="center">
+      <div class="eyebrow">{{mac.eyebrow}}</div>
+      <h2>{{mac.title}}</h2>
+      <p class="sub">{{mac.sub}}</p>
+    </div>
+    <img class="shot" src="{{A}}mac-1-dashboard.jpg" alt="{{mac.alt1}}">
+    <div class="grid" style="margin-top:20px">
+      <img class="shot" src="{{A}}mac-2-presentations.jpg" alt="{{mac.alt2}}">
+      <img class="shot" src="{{A}}mac-3-settings-keys.jpg" alt="{{mac.alt3}}">
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">{{tour.eyebrow}}</div>
+    <h2>{{tour.title}}</h2>
+    <div class="gallery">
+      <figure><img src="{{A}}iphone-1-controls.jpg" alt="{{tour.alt1}}" loading="lazy"><figcaption>{{tour.cap1}}</figcaption></figure>
+      <figure><img src="{{A}}iphone-2-notes-editor.jpg" alt="{{tour.alt2}}" loading="lazy"><figcaption>{{tour.cap2}}</figcaption></figure>
+      <figure><img src="{{A}}iphone-3-timer-plan.jpg" alt="{{tour.alt3}}" loading="lazy"><figcaption>{{tour.cap3}}</figcaption></figure>
+      <figure><img src="{{A}}iphone-4-presentations.jpg" alt="{{tour.alt4}}" loading="lazy"><figcaption>{{tour.cap4}}</figcaption></figure>
+      <figure><img src="{{A}}iphone-5-mac-list.jpg" alt="{{tour.alt5}}" loading="lazy"><figcaption>{{tour.cap5}}</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" class="alt">
+  <div class="wrap">
+    <div class="center">
+      <div class="eyebrow">{{pricing.eyebrow}}</div>
+      <h2>{{pricing.title}}</h2>
+      <p class="sub">{{pricing.sub}}</p>
+    </div>
+    <div class="prices">
+      <div class="price">
+        <h3>{{pricing.free_name}}</h3>
+        <div class="amt">{{pricing.free_amount}}</div>
+        <div class="note">{{pricing.free_note}}</div>
+        <ul class="ticks">
+          <li>{{pricing.free1}}</li>
+          <li>{{pricing.free2}}</li>
+          <li>{{pricing.free3}}</li>
+          <li>{{pricing.free4}}</li>
+        </ul>
+      </div>
+      <div class="price pro">
+        <h3>{{pricing.pro_name}}</h3>
+        <div class="amt">{{pricing.pro_amount}}</div>
+        <div class="note">{{pricing.pro_note}}</div>
+        <ul class="ticks">
+          <li>{{pricing.pro1}}</li>
+          <li>{{pricing.pro2}}</li>
+          <li>{{pricing.pro3}}</li>
+          <li>{{pricing.pro4}}</li>
+          <li>{{pricing.pro5}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">{{req.eyebrow}}</div>
+    <h2>{{req.title}}</h2>
+    <p class="sub">{{req.sub}}</p>
+    <div class="plat">
+      <div><b>Mac</b><span>{{req.mac}}</span></div>
+      <div><b>Windows</b><span>{{req.windows}}</span></div>
+      <div><b>{{req.apple_name}}</b><span>{{req.apple}}</span></div>
+      <div><b>{{req.android_name}}</b><span>{{req.android}}</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 George Turner</span>
+    <button class="theme-toggle" id="themeToggle" type="button"></button>
+    <label class="lang-pick">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+      <span class="visually-hidden">{{footer.language}}</span>
+      <select id="langSelect">{{LANG_OPTIONS}}</select>
+    </label>
+    <div class="links">
+      <a href="{{R}}support/">{{footer.help}}</a>
+      <a href="{{R}}privacy/">{{footer.privacy}}</a>
+      <a href="{{R}}terms/">{{footer.terms}}</a>
+    </div>
+  </div>
+</footer>
